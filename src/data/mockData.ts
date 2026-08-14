@@ -681,324 +681,10 @@ export const modulesData: ModuleConfig[] = [
         ],
       },
       {
-        key: "gateentry",
-        label: "Gate Operations (Entry/Exit)",
-        fields: [
-          { key: "vehicleNo", label: "Vehicle Number", type: "text", required: true, section: "Vehicle Details" },
-          { key: "driverName", label: "Driver Name", type: "text", required: true, section: "Vehicle Details" },
-          { key: "transporter", label: "Transporter", type: "text", required: true, section: "Vehicle Details" },
-          { key: "materialName", label: "Cargo Type", type: "select", options: ["Crude Palm Oil (CPO)", "RBD Palm Olein"], required: true, section: "Cargo Declared" },
-          { key: "quantity", label: "Declared Quantity (MT)", type: "number", required: true, section: "Cargo Declared" },
-          { key: "entryDateTime", label: "Entry Date & Time", type: "text", required: true, section: "Security Status" },
-          { key: "exitDateTime", label: "Exit Date & Time", type: "text", section: "Security Status" },
-          { key: "exitClearance", label: "Exit Clearance Status", type: "select", options: ["Cleared", "Hold"], section: "Security Status" },
-        ],
-        defaultData: [
-          {
-            id: "ge-1",
-            code: "GE-2026-0812",
-            date: "2026-08-12",
-            status: "Cleared",
-            workflowStep: "Vehicle Exited",
-            createdAt: "2026-08-12",
-            createdBy: "SecOfficer R. Singh",
-            auditTrail: defaultAuditTrail(),
-            activities: defaultActivities("GE-2026-0812"),
-            comments: defaultComments(),
-            attachments: defaultAttachments(),
-            approvalHistory: defaultApprovalHistory(),
-            details: {
-              vehicleNo: "MH12-9842",
-              driverName: "Harpreet Singh",
-              transporter: "Global Cargo Logistics",
-              materialName: "Crude Palm Oil (CPO)",
-              quantity: 25,
-              entryDateTime: "2026-08-12 10:15",
-              exitDateTime: "2026-08-12 14:10",
-              exitClearance: "Cleared",
-            },
-          },
-        ],
-      },
-      {
-        key: "qualityinspection",
-        label: "Quality Inspection",
-        fields: [
-          { key: "gateEntry", label: "Gate Entry Ref", type: "text", required: true, section: "References" },
-          { key: "sampleId", label: "Sample ID", type: "text", required: true, section: "Quality Parameters" },
-          { key: "ffa", label: "Free Fatty Acids (FFA %)", type: "number", required: true, section: "Quality Parameters" },
-          { key: "moi", label: "Moisture & Impurities (%)", type: "number", required: true, section: "Quality Parameters" },
-          { key: "qualityStatus", label: "Inspection Status", type: "select", options: ["Accepted", "Rejected"], required: true, section: "Quality Parameters" },
-        ],
-        defaultData: [
-          {
-            id: "insp-1",
-            code: "INSP-2026-0812",
-            date: "2026-08-12",
-            status: "Accepted",
-            workflowStep: "Completed",
-            createdAt: "2026-08-12",
-            createdBy: "QA Lab Chief",
-            auditTrail: defaultAuditTrail(),
-            activities: defaultActivities("INSP-2026-0812"),
-            comments: defaultComments(),
-            attachments: defaultAttachments(),
-            details: {
-              gateEntry: "GE-2026-0812",
-              sampleId: "SMP-2026-9042",
-              ffa: 4.2,
-              moi: 0.15,
-              qualityStatus: "Accepted",
-            },
-          },
-        ],
-      },
-      {
-        key: "goodsreceipt",
-        label: "Goods Receipt",
-        fields: [
-          { key: "gateEntry", label: "Gate Entry Ref", type: "text", required: true, section: "Receipt References" },
-          { key: "product", label: "Product Received", type: "select", options: ["Crude Palm Oil (CPO)"], required: true, section: "Receipt Details" },
-          { key: "receivedQty", label: "Received Qty (MT)", type: "number", required: true, section: "Receipt Details" },
-          { key: "targetTank", label: "Discharge Tank", type: "select", options: ["Tank T-101 (Crude Palm Oil)"], required: true, section: "Discharge Details" },
-        ],
-        defaultData: [
-          {
-            id: "grn-1",
-            code: "GRN-2026-0812",
-            date: "2026-08-12",
-            status: "Posted",
-            workflowStep: "Inventory Updated",
-            createdAt: "2026-08-12",
-            createdBy: "StoreOfficer A. Verma",
-            auditTrail: defaultAuditTrail(),
-            activities: defaultActivities("GRN-2026-0812"),
-            comments: defaultComments(),
-            attachments: defaultAttachments(),
-            details: {
-              gateEntry: "GE-2026-0812",
-              product: "Crude Palm Oil (CPO)",
-              receivedQty: 24.8,
-              targetTank: "Tank T-101 (Crude Palm Oil)",
-            },
-          },
-        ],
-      },
-    ],
-  },
-  {
-    key: "REMOVED_PLACEHOLDER",
-    label: "Receiving Operations",
-    icon: "truck",
-    transactions: [
-      {
-        key: "gateentry",
-        label: "Gate Operations (Entry/Exit)",
-        fields: [
-          {
-            key: "vehicleNo",
-            label: "Vehicle Number",
-            type: "text",
-            required: true,
-            section: "Vehicle Details",
-          },
-          {
-            key: "driverName",
-            label: "Driver Name",
-            type: "text",
-            required: true,
-            section: "Vehicle Details",
-          },
-          {
-            key: "transporter",
-            label: "Transporter",
-            type: "text",
-            required: true,
-            section: "Vehicle Details",
-          },
-          {
-            key: "materialName",
-            label: "Cargo Type",
-            type: "select",
-            options: ["Crude Palm Oil (CPO)", "RBD Palm Olein"],
-            required: true,
-            section: "Cargo Declared",
-          },
-          {
-            key: "quantity",
-            label: "Declared Quantity (MT)",
-            type: "number",
-            required: true,
-            section: "Cargo Declared",
-          },
-          {
-            key: "entryDateTime",
-            label: "Entry Date & Time",
-            type: "text",
-            required: true,
-            section: "Security Status",
-          },
-          {
-            key: "exitDateTime",
-            label: "Exit Date & Time",
-            type: "text",
-            section: "Security Status",
-          },
-          {
-            key: "exitClearance",
-            label: "Exit Clearance Status",
-            type: "select",
-            options: ["Cleared", "Hold"],
-            section: "Security Status",
-          },
-        ],
-        defaultData: [
-          {
-            id: "ge-1",
-            code: "GE-2026-0812",
-            date: "2026-08-12",
-            status: "Cleared",
-            workflowStep: "Vehicle Exited",
-            createdAt: "2026-08-12",
-            createdBy: "SecOfficer R. Singh",
-            auditTrail: defaultAuditTrail(),
-            activities: defaultActivities("GE-2026-0812"),
-            comments: defaultComments(),
-            attachments: defaultAttachments(),
-            approvalHistory: defaultApprovalHistory(),
-            details: {
-              vehicleNo: "MH12-9842",
-              driverName: "Harpreet Singh",
-              transporter: "Global Cargo Logistics",
-              materialName: "Crude Palm Oil (CPO)",
-              quantity: 25,
-              entryDateTime: "2026-08-12 10:15",
-              exitDateTime: "2026-08-12 14:10",
-              exitClearance: "Cleared",
-            },
-          },
-        ],
-      },
-      {
-        key: "qualityinspection",
-        label: "Quality Inspection",
-        fields: [
-          {
-            key: "gateEntry",
-            label: "Gate Entry Ref",
-            type: "text",
-            required: true,
-            section: "References",
-          },
-          {
-            key: "sampleId",
-            label: "Sample ID",
-            type: "text",
-            required: true,
-            section: "Quality Parameters",
-          },
-          {
-            key: "ffa",
-            label: "Free Fatty Acids (FFA %)",
-            type: "number",
-            required: true,
-            section: "Quality Parameters",
-          },
-          {
-            key: "moi",
-            label: "Moisture & Impurities (%)",
-            type: "number",
-            required: true,
-            section: "Quality Parameters",
-          },
-          {
-            key: "qualityStatus",
-            label: "Inspection Status",
-            type: "select",
-            options: ["Accepted", "Rejected"],
-            required: true,
-            section: "Quality Parameters",
-          },
-        ],
-        defaultData: [
-          {
-            id: "insp-1",
-            code: "INSP-2026-0812",
-            date: "2026-08-12",
-            status: "Accepted",
-            workflowStep: "Completed",
-            createdAt: "2026-08-12",
-            createdBy: "QA Lab Chief",
-            auditTrail: defaultAuditTrail(),
-            activities: defaultActivities("INSP-2026-0812"),
-            comments: defaultComments(),
-            attachments: defaultAttachments(),
-            details: {
-              gateEntry: "GE-2026-0812",
-              sampleId: "SMP-2026-9042",
-              ffa: 4.2,
-              moi: 0.15,
-              qualityStatus: "Accepted",
-            },
-          },
-        ],
-      },
-      {
-        key: "goodsreceipt",
-        label: "Goods Receipt",
-        fields: [
-          {
-            key: "gateEntry",
-            label: "Gate Entry Ref",
-            type: "text",
-            required: true,
-            section: "Receipt References",
-          },
-          {
-            key: "product",
-            label: "Product Received",
-            type: "select",
-            options: ["Crude Palm Oil (CPO)"],
-            required: true,
-            section: "Receipt Details",
-          },
-          {
-            key: "receivedQty",
-            label: "Received Qty (MT)",
-            type: "number",
-            required: true,
-            section: "Receipt Details",
-          },
-          {
-            key: "targetTank",
-            label: "Discharge Tank",
-            type: "select",
-            options: ["Tank T-101 (Crude Palm Oil)"],
-            required: true,
-            section: "Discharge Details",
-          },
-        ],
-        defaultData: [
-          {
-            id: "grn-1",
-            code: "GRN-2026-0812",
-            date: "2026-08-12",
-            status: "Posted",
-            workflowStep: "Inventory Updated",
-            createdAt: "2026-08-12",
-            createdBy: "StoreOfficer A. Verma",
-            auditTrail: defaultAuditTrail(),
-            activities: defaultActivities("GRN-2026-0812"),
-            comments: defaultComments(),
-            attachments: defaultAttachments(),
-            details: {
-              gateEntry: "GE-2026-0812",
-              product: "Crude Palm Oil (CPO)",
-              receivedQty: 24.8,
-              targetTank: "Tank T-101 (Crude Palm Oil)",
-            },
-          },
-        ],
+        key: "inboundreceiving",
+        label: "Inbound Receiving Workflow",
+        fields: [],
+        defaultData: []
       },
     ],
   },
@@ -1014,6 +700,7 @@ export const modulesData: ModuleConfig[] = [
           { key: "productName", label: "Product Name", type: "text", required: true, section: "Product Info" },
           { key: "productCode", label: "Product Code", type: "text", required: true, section: "Product Info" },
           { key: "productType", label: "Product Type", type: "select", options: ["Raw Material", "Chemical / Additive", "Finished Product"], required: true, section: "Product Info" },
+          { key: "storageLocation", label: "Storage Location", type: "select", options: ["Tank", "Warehouse"], required: true, section: "Inventory Status" },
           { key: "currentStock", label: "Current Stock", type: "number", required: true, section: "Inventory Status" },
           { key: "uom", label: "Unit of Measure (UOM)", type: "select", options: ["MT", "Units"], required: true, section: "Inventory Status" }
         ],
@@ -1032,6 +719,7 @@ export const modulesData: ModuleConfig[] = [
               productName: "Crude Palm Oil (CPO)",
               productCode: "PROD-CPO-01",
               productType: "Raw Material",
+              storageLocation: "Tank",
               currentStock: 1200,
               uom: "MT"
             }
@@ -1050,6 +738,7 @@ export const modulesData: ModuleConfig[] = [
               productName: "Phosphoric Acid (85% purity)",
               productCode: "PROD-PA-02",
               productType: "Chemical / Additive",
+              storageLocation: "Warehouse",
               currentStock: 50,
               uom: "MT"
             }
@@ -1068,6 +757,7 @@ export const modulesData: ModuleConfig[] = [
               productName: "Caustic Soda (NaOH 50% purity)",
               productCode: "PROD-CS-03",
               productType: "Chemical / Additive",
+              storageLocation: "Warehouse",
               currentStock: 30,
               uom: "MT"
             }
@@ -1086,6 +776,7 @@ export const modulesData: ModuleConfig[] = [
               productName: "Activated Bleaching Earth",
               productCode: "PROD-BE-04",
               productType: "Chemical / Additive",
+              storageLocation: "Warehouse",
               currentStock: 100,
               uom: "MT"
             }
@@ -1104,6 +795,7 @@ export const modulesData: ModuleConfig[] = [
               productName: "Citric Acid (50% purity)",
               productCode: "PROD-CA-05",
               productType: "Chemical / Additive",
+              storageLocation: "Warehouse",
               currentStock: 25,
               uom: "MT"
             }
@@ -1122,6 +814,7 @@ export const modulesData: ModuleConfig[] = [
               productName: "Precoat Filter Aid",
               productCode: "PROD-FA-06",
               productType: "Chemical / Additive",
+              storageLocation: "Warehouse",
               currentStock: 40,
               uom: "MT"
             }
@@ -1140,6 +833,7 @@ export const modulesData: ModuleConfig[] = [
               productName: "Filter Cloths / Papers",
               productCode: "PROD-FC-07",
               productType: "Chemical / Additive",
+              storageLocation: "Warehouse",
               currentStock: 200,
               uom: "Units"
             }
@@ -1158,6 +852,7 @@ export const modulesData: ModuleConfig[] = [
               productName: "Nitrogen Gas (Blanketing)",
               productCode: "PROD-NG-08",
               productType: "Chemical / Additive",
+              storageLocation: "Warehouse",
               currentStock: 15,
               uom: "MT"
             }
@@ -1325,6 +1020,78 @@ export const modulesData: ModuleConfig[] = [
               assignedProduct: "RBD Palm Olein (CP10)",
               capacity: 4000,
               currentVolume: 3850,
+            },
+          },
+        ],
+      },
+      {
+        key: "warehouse",
+        label: "Warehouses",
+        fields: [
+          {
+            key: "warehouseName",
+            label: "Warehouse Name",
+            type: "text",
+            required: true,
+            section: "Basic Information",
+          },
+          {
+            key: "location",
+            label: "Location",
+            type: "text",
+            required: true,
+            section: "Basic Information",
+          },
+          {
+            key: "capacity",
+            label: "Capacity (Sq. Ft / MT)",
+            type: "number",
+            required: true,
+            section: "Capacity Details",
+          },
+          {
+            key: "currentUtilization",
+            label: "Current Utilization (%)",
+            type: "number",
+            required: true,
+            section: "Capacity Details",
+          },
+        ],
+        defaultData: [
+          {
+            id: "wh-1",
+            code: "WH-CHEM-01",
+            name: "Chemical Storage WH-1",
+            status: "Active",
+            createdAt: "2026-08-01",
+            createdBy: "System",
+            auditTrail: [],
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              warehouseName: "Chemical Storage WH-1",
+              location: "North Wing",
+              capacity: 10000,
+              currentUtilization: 45,
+            },
+          },
+          {
+            id: "wh-2",
+            code: "WH-SPARES-01",
+            name: "Spares & Consumables WH-2",
+            status: "Active",
+            createdAt: "2026-08-01",
+            createdBy: "System",
+            auditTrail: [],
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              warehouseName: "Spares & Consumables WH-2",
+              location: "South Wing",
+              capacity: 5000,
+              currentUtilization: 80,
             },
           },
         ],
@@ -1516,12 +1283,64 @@ export const modulesData: ModuleConfig[] = [
           },
         ],
       },
+      {
+        key: "utilitylogs",
+        label: "Utility Usage Logs",
+        fields: [
+          { key: "logNo", label: "Log Number", type: "text", required: true, section: "Log ID" },
+          { key: "logDate", label: "Date of Log", type: "date", required: true, section: "Telemetry Data" },
+          { key: "coalStock", label: "Coal Fuel Stock (MT)", type: "number", required: true, section: "Fuel Inventory" },
+          { key: "waterConsumption", label: "Boiler Feedwater (kL)", type: "number", required: true, section: "Utility Inputs" },
+          { key: "steamGenerated", label: "Process Steam Yield (MT)", type: "number", required: true, section: "Utility Yields" },
+          { key: "powerConsumption", label: "Grid Electrical Draw (kWh)", type: "number", required: true, section: "Utility Inputs" }
+        ],
+        defaultData: [
+          {
+            id: "utl-log-1",
+            code: "UTL-2026-091",
+            status: "Recorded",
+            createdAt: "2026-08-14",
+            createdBy: "Boiler Operator",
+            auditTrail: [],
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              logNo: "UTL-2026-091",
+              logDate: "2026-08-14",
+              coalStock: 450,
+              waterConsumption: 120,
+              steamGenerated: 95,
+              powerConsumption: 4800
+            }
+          },
+          {
+            id: "utl-log-2",
+            code: "UTL-2026-092",
+            status: "Recorded",
+            createdAt: "2026-08-13",
+            createdBy: "Boiler Operator",
+            auditTrail: [],
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              logNo: "UTL-2026-092",
+              logDate: "2026-08-13",
+              coalStock: 480,
+              waterConsumption: 115,
+              steamGenerated: 92,
+              powerConsumption: 4600
+            }
+          }
+        ]
+      }
     ],
   },
   {
-    key: "assets",
-    label: "Asset Management",
-    icon: "cpu",
+    key: "maintenance",
+    label: "Maintenance Operations",
+    icon: "settings",
     masters: [
       {
         key: "asset",
@@ -1618,12 +1437,7 @@ export const modulesData: ModuleConfig[] = [
           }
         ]
       }
-    ]
-  },
-  {
-    key: "maintenance",
-    label: "Maintenance Operations",
-    icon: "settings",
+    ],
     transactions: [
       {
         key: "workorder",
@@ -1720,213 +1534,7 @@ export const modulesData: ModuleConfig[] = [
       }
     ]
   },
-  {
-    key: "utilities",
-    label: "Utilities",
-    icon: "users",
-    masters: [
-      {
-        key: "employee",
-        label: "Employee Roster",
-        fields: [
-          { key: "employeeName", label: "Employee Name", type: "text", required: true, section: "Employee Profile" },
-          { key: "employeeCode", label: "Employee Code", type: "text", required: true, section: "Employee Profile" },
-          { key: "role", label: "Role", type: "select", options: ["Shift Engineer", "Operator", "Technician", "Supervisor"], required: true, section: "Employee Profile" },
-          { key: "status", label: "Operational Status", type: "select", options: ["Active", "On Leave", "Suspended"], required: true, section: "Employee Profile" }
-        ],
-        defaultData: [
-          {
-            id: "emp-1",
-            code: "EMP-001",
-            status: "Active",
-            createdAt: "2026-08-01",
-            createdBy: "Admin",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              employeeName: "Rajesh Kumar",
-              employeeCode: "EMP-001",
-              role: "Shift Engineer",
-              status: "Active"
-            }
-          },
-          {
-            id: "emp-2",
-            code: "EMP-002",
-            status: "Active",
-            createdAt: "2026-08-01",
-            createdBy: "Admin",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              employeeName: "Rajan Singh",
-              employeeCode: "EMP-002",
-              role: "Operator",
-              status: "Active"
-            }
-          },
-          {
-            id: "emp-3",
-            code: "EMP-003",
-            status: "Active",
-            createdAt: "2026-08-01",
-            createdBy: "Admin",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              employeeName: "Amit Sharma",
-              employeeCode: "EMP-003",
-              role: "Operator",
-              status: "Active"
-            }
-          },
-          {
-            id: "emp-4",
-            code: "EMP-004",
-            status: "Active",
-            createdAt: "2026-08-01",
-            createdBy: "Admin",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              employeeName: "Anil Mehta",
-              employeeCode: "EMP-004",
-              role: "Technician",
-              status: "Active"
-            }
-          },
-          {
-            id: "emp-5",
-            code: "EMP-005",
-            status: "Active",
-            createdAt: "2026-08-01",
-            createdBy: "Admin",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              employeeName: "Suresh G.",
-              employeeCode: "EMP-005",
-              role: "Supervisor",
-              status: "Active"
-            }
-          }
-        ]
-      }
-    ],
-    transactions: [
-      {
-        key: "shiftplan",
-        label: "Shift Allocations",
-        fields: [
-          { key: "shiftNo", label: "Shift Plan No", type: "text", required: true, section: "Shift Info" },
-          { key: "employeeRef", label: "Assigned Employee", type: "text", required: true, section: "Shift Info" },
-          { key: "scheduledDay", label: "Scheduled Day", type: "select", options: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], required: true, section: "Shift Info" },
-          { key: "productionOrderRef", label: "Production Order Ref", type: "text", required: true, section: "Shift Info" },
-          { key: "shiftTime", label: "Shift Timing", type: "select", options: ["Day (08:00 - 16:00)", "Evening (16:00 - 00:00)", "Night (00:00 - 08:00)"], required: true, section: "Shift Info" }
-        ],
-        defaultData: [
-          {
-            id: "shift-1",
-            code: "SHIFT-2026-0001",
-            status: "Approved",
-            createdAt: "2026-08-14",
-            createdBy: "Operations Planner",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              shiftNo: "SHIFT-2026-0001",
-              employeeRef: "Rajesh Kumar",
-              scheduledDay: "Monday",
-              productionOrderRef: "PRD-ORD-2026-8041",
-              shiftTime: "Day (08:00 - 16:00)"
-            }
-          },
-          {
-            id: "shift-2",
-            code: "SHIFT-2026-0002",
-            status: "Approved",
-            createdAt: "2026-08-14",
-            createdBy: "Operations Planner",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              shiftNo: "SHIFT-2026-0002",
-              employeeRef: "Rajan Singh",
-              scheduledDay: "Wednesday",
-              productionOrderRef: "PRD-ORD-2026-8041",
-              shiftTime: "Night (00:00 - 08:00)"
-            }
-          }
-        ]
-      },
-      {
-        key: "utilitylogs",
-        label: "Utility Usage Logs",
-        fields: [
-          { key: "logNo", label: "Log Number", type: "text", required: true, section: "Log ID" },
-          { key: "logDate", label: "Date of Log", type: "date", required: true, section: "Telemetry Data" },
-          { key: "coalStock", label: "Coal Fuel Stock (MT)", type: "number", required: true, section: "Fuel Inventory" },
-          { key: "waterConsumption", label: "Boiler Feedwater (kL)", type: "number", required: true, section: "Utility Inputs" },
-          { key: "steamGenerated", label: "Process Steam Yield (MT)", type: "number", required: true, section: "Utility Yields" },
-          { key: "powerConsumption", label: "Grid Electrical Draw (kWh)", type: "number", required: true, section: "Utility Inputs" }
-        ],
-        defaultData: [
-          {
-            id: "utl-log-1",
-            code: "UTL-2026-091",
-            status: "Recorded",
-            createdAt: "2026-08-14",
-            createdBy: "Boiler Operator",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              logNo: "UTL-2026-091",
-              logDate: "2026-08-14",
-              coalStock: 450,
-              waterConsumption: 120,
-              steamGenerated: 95,
-              powerConsumption: 4800
-            }
-          },
-          {
-            id: "utl-log-2",
-            code: "UTL-2026-092",
-            status: "Recorded",
-            createdAt: "2026-08-13",
-            createdBy: "Boiler Operator",
-            auditTrail: [],
-            activities: [],
-            comments: [],
-            attachments: [],
-            details: {
-              logNo: "UTL-2026-092",
-              logDate: "2026-08-13",
-              coalStock: 480,
-              waterConsumption: 115,
-              steamGenerated: 92,
-              powerConsumption: 4600
-            }
-          }
-        ]
-      }
-    ]
-  },
+
   {
     key: "finance",
     label: "Payments",

@@ -1,6 +1,8 @@
 import { ProcessTemplateView } from "./components/ProcessTemplateView"
 import { RefiningManagementView } from "./components/RefiningManagementView"
 import { InboundReceivingView } from "./components/InboundReceivingView"
+import { DashboardView } from "./components/DashboardView"
+import { LoginView } from "./components/LoginView"
 import { useState, useEffect } from "react"
 import {
   AreaChart,
@@ -24,63 +26,11 @@ import {
 import { ProductionPlanningView } from "./components/ProductionPlanningView"
 import { ModuleKey, MasterEntity, TransactionEntity } from "./types"
 
-// Multi-colored Swirl Logo for ROCKEYE
-export function RockeyeLogo({ className = "w-7 h-7" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 100 100"
-      className={`${className} flex-shrink-0`}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M50 10C65 10 78 20 83 34C80 32 75 31 70 32C60 34 52 42 50 52C48 42 40 34 30 32C25 31 20 32 17 34C22 20 35 10 50 10Z"
-        fill="#dc2626"
-      />
-      <path
-        d="M90 50C90 65 80 78 66 83C68 80 69 75 68 70C66 60 58 52 48 50C58 48 66 40 68 30C69 25 68 20 66 17C80 22 90 35 90 50Z"
-        fill="#2563eb"
-      />
-      <path
-        d="M50 90C35 90 22 80 17 66C20 68 25 69 30 68C40 66 48 58 50 48C52 58 60 66 70 68C75 69 80 68 83 66C78 80 65 90 50 90Z"
-        fill="#16a34a"
-      />
-      <path
-        d="M10 50C10 35 20 22 34 17C32 20 31 25 32 30C34 40 42 48 52 50C42 52 34 60 32 70C31 75 32 80 34 83C20 78 10 65 10 50Z"
-        fill="#ca8a04"
-      />
-      <circle cx="50" cy="50" r="12" fill="#ffffff" />
-      <circle cx="50" cy="50" r="6" fill="#ca8a04" />
-    </svg>
-  )
-}
+// Removed RockeyeLogo function in favor of official image tag
 
-// Production analytics data for standard Executive Dashboard
-const productionFlowData = [
-  { time: "00:00", crude: 12400, naphtha: 3200, diesel: 5100 },
-  { time: "03:00", crude: 13100, naphtha: 3400, diesel: 5300 },
-  { time: "06:00", crude: 14200, naphtha: 3800, diesel: 5900 },
-  { time: "09:00", crude: 15800, naphtha: 4100, diesel: 6400 },
-  { time: "12:00", crude: 16200, naphtha: 4300, diesel: 6700 },
-  { time: "15:00", crude: 15600, naphtha: 4200, diesel: 6500 },
-  { time: "18:00", crude: 14900, naphtha: 3900, diesel: 6200 },
-  { time: "21:00", crude: 14100, naphtha: 3700, diesel: 5800 },
-]
-
-const tankInventoryData = [
-  {
-    name: "Crude Palm Oil T-101",
-    value: 78,
-    capacity: 500000,
-    fill: "#2563eb",
-  },
-  { name: "Naphtha T-102", value: 54, capacity: 120000, fill: "#0284c7" },
-  { name: "Diesel T-103", value: 88, capacity: 200000, fill: "#16a34a" },
-  { name: "ATF T-104", value: 41, capacity: 80000, fill: "#ca8a04" },
-  { name: "Fuel Oil T-105", value: 65, capacity: 150000, fill: "#dc2626" },
-]
-
+// Cleaned up App.tsx
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [collapsed, setCollapsed] = useState(false)
   const [db, setDb] = useState(modulesData)
 
@@ -91,9 +41,7 @@ export default function App() {
       procurement: false,
 
       tankfarm: false,
-      assets: false,
       maintenance: false,
-      utilities: false,
     })
 
   // Navigation state mapping directly to active Entity types
@@ -115,6 +63,7 @@ export default function App() {
   // Toolbar popup menu states
   const [filterMenu, setFilterMenu] = useState(false)
   const [showChooser, setShowChooser] = useState(false)
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
 
   // Detail View & Drawer States
   const [viewingEntity, setViewingEntity] =
@@ -866,16 +815,20 @@ export default function App() {
     alert(`ROCKEYE Transaction decision recorded: ${decision}`)
   }
 
+  if (!isLoggedIn) {
+    return <LoginView onLogin={() => setIsLoggedIn(true)} />
+  }
+
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-100 font-sans">
-      {/* Off-White Sidebar Panel */}
+    <div className="flex h-screen w-full bg-slate-50 overflow-hidden font-sans text-slate-800">
+      {/* SIDEBAR */}
       <aside
         className="flex flex-col h-screen flex-shrink-0 transition-all duration-300 bg-[#fbfcfd] border-r border-slate-200"
         style={{ width: collapsed ? 64 : 260 }}
       >
         {/* Logo brand heading */}
         <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-200 bg-white select-none">
-          <RockeyeLogo />
+          <img src="/assets/palm-logo.png" alt="ROCKEYE" className="w-8 h-8 object-contain flex-shrink-0" />
           {!collapsed && (
             <div className="flex items-center gap-2">
               <span className="text-sm font-extrabold text-slate-800 tracking-tight">
@@ -978,21 +931,6 @@ export default function App() {
                               category: "transactions",
                             },
                             {
-                              key: "gateentry",
-                              label: "Gate Operations (Entry/Exit)",
-                              category: "transactions",
-                            },
-                            {
-                              key: "qualityinspection",
-                              label: "Quality Inspection",
-                              category: "transactions",
-                            },
-                            {
-                              key: "goodsreceipt",
-                              label: "Goods Receipt",
-                              category: "transactions",
-                            },
-                            {
                               key: "inboundreceiving",
                               label: "Inbound Receiving Workflow",
                               category: "transactions",
@@ -1007,6 +945,11 @@ export default function App() {
                             {
                               key: "tank",
                               label: "Tanks",
+                              category: "masters",
+                            },
+                            {
+                              key: "warehouse",
+                              label: "Warehouses",
                               category: "masters",
                             },
                           ],
@@ -1025,6 +968,11 @@ export default function App() {
                               key: "process-template",
                               label: "Process Templates",
                               category: "masters",
+                            },
+                            {
+                              key: "utilitylogs",
+                              label: "Utility Usage Logs",
+                              category: "transactions",
                             },
                           ],
                           quality: [
@@ -1105,14 +1053,12 @@ export default function App() {
                               category: "transactions",
                             },
                           ],
-                          assets: [
+                          maintenance: [
                             {
                               key: "asset",
                               label: "Assets",
                               category: "masters",
                             },
-                          ],
-                          maintenance: [
                             {
                               key: "maintrequest",
                               label: "Maintenance Requests",
@@ -1121,23 +1067,6 @@ export default function App() {
                             {
                               key: "workorder",
                               label: "Work Orders",
-                              category: "transactions",
-                            },
-                          ],
-                          utilities: [
-                            {
-                              key: "employee",
-                              label: "Employee Roster",
-                              category: "masters",
-                            },
-                            {
-                              key: "shiftplan",
-                              label: "Shift Allocations",
-                              category: "transactions",
-                            },
-                            {
-                              key: "utilitylogs",
-                              label: "Utility Usage Logs",
                               category: "transactions",
                             },
                           ],
@@ -1184,8 +1113,11 @@ export default function App() {
         </nav>
 
         {/* User Card */}
-        <div className="px-4 py-3 border-t border-slate-200 bg-white">
-          <div className="flex items-center gap-3">
+        <div className="relative px-4 py-3 border-t border-slate-200 bg-white">
+          <div 
+            className="flex items-center gap-3 cursor-pointer hover:bg-slate-50 p-1 -mx-1 rounded transition-colors"
+            onClick={() => setUserMenuOpen(!userMenuOpen)}
+          >
             <div className="w-8 h-8 rounded-full bg-blue-700 text-white font-bold flex items-center justify-center text-xs">
               JD
             </div>
@@ -1201,6 +1133,32 @@ export default function App() {
             )}
             <Icon name="chevron-down" size={12} className="text-slate-400" />
           </div>
+
+          {userMenuOpen && (
+            <div className="absolute bottom-full left-4 mb-2 w-48 bg-white border border-slate-200 rounded-lg shadow-xl overflow-hidden z-50 animate-[slide-up_0.2s_ease-out]">
+              <div className="p-2 border-b border-slate-100 bg-slate-50">
+                <p className="text-xs font-semibold text-slate-700">Account</p>
+              </div>
+              <div className="p-1">
+                <button
+                  className="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded transition-colors text-left"
+                >
+                  <Icon name="settings" size={14} />
+                  Settings
+                </button>
+                <button
+                  onClick={() => {
+                    setUserMenuOpen(false)
+                    setIsLoggedIn(false)
+                  }}
+                  className="w-full flex items-center gap-2 px-3 py-2 text-xs text-red-600 hover:bg-red-50 hover:text-red-700 rounded transition-colors text-left"
+                >
+                  <Icon name="log-out" size={14} />
+                  Logout
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </aside>
 
@@ -1388,75 +1346,7 @@ export default function App() {
                       Upload Document
                     </Button>
                   </>
-                ) : activeEntityKey === "enquiry" ? (
-                  <>
-                    <Button
-                      icon="edit"
-                      onClick={() => {
-                        setEditingEntity(viewingEntity)
-                        setFormMode("edit")
-                        setIsFormOpen(true)
-                      }}
-                      className="px-2.5 py-1 min-h-0 text-xs"
-                    >
-                      Edit Enquiry
-                    </Button>
-                    <Button
-                      icon="plus"
-                      onClick={() => {
-                        setCustomFormOverride({
-                          activeKey: "quotation",
-                          title: "Respond to Enquiry: " + viewingEntity.code,
-                          fields:
-                            db
-                              .flatMap((m) => m.transactions || [])
-                              .find((t) => t.key === "quotation")?.fields || [],
-                          initialData: {
-                            quotationDate: new Date()
-                              .toISOString()
-                              .split("T")[0],
-                            customer:
-                              viewingEntity.details?.customer ||
-                              viewingEntity.name ||
-                              "",
-                            enquiryRef: viewingEntity.code,
-                            salesExecutive:
-                              viewingEntity.details?.salesExecutive ||
-                              "Arjun Kumar",
-                            businessUnit:
-                              viewingEntity.details?.businessUnit ||
-                              "Refined Fuels",
-                            currency: viewingEntity.details?.currency || "INR",
-                            expiryDate: new Date(
-                              Date.now() + 7 * 24 * 60 * 60 * 1000,
-                            )
-                              .toISOString()
-                              .split("T")[0],
-                            priority: viewingEntity.details?.priority || "High",
-                            product: viewingEntity.details?.product || "",
-                            productGrade:
-                              viewingEntity.details?.productGrade || "",
-                            quantity: viewingEntity.details?.quantity || 0,
-                            uom: viewingEntity.details?.uom || "MT",
-                            packagingType:
-                              viewingEntity.details?.packagingType || "Bulk",
-                            unitPrice:
-                              viewingEntity.details?.expectedPrice || 60000,
-                            discount: 0,
-                            tax: 18,
-                            deliveryLocation:
-                              viewingEntity.details?.deliveryLocation || "",
-                            targetDate: viewingEntity.details?.targetDate || "",
-                          },
-                        })
-                        setFormMode("create")
-                        setIsFormOpen(true)
-                      }}
-                      className="px-2.5 py-1 min-h-0 text-xs bg-emerald-600 hover:bg-emerald-700 text-white font-bold"
-                    >
-                      Respond & Quote
-                    </Button>
-                  </>
+
                 ) : activeEntityKey === "supplier" ? (
                   <>
                     <Button
@@ -1630,146 +1520,7 @@ export default function App() {
         {/* Page Content Panel */}
         <main className="flex-1 overflow-hidden p-6 bg-slate-50 flex flex-col">
           {currentView === "dashboard" ? (
-            // Executive Dashboard Panel
-            <div className="flex-1 overflow-y-auto"><div className="flex flex-col gap-6">
-              <div className="flex justify-between items-end">
-                <div>
-                  <h1 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                    <RockeyeLogo className="w-6 h-6" />
-                    ROCKEYE Operations Center
-                  </h1>
-                  <p className="text-[11px] text-slate-400">
-                    Live operational telemetry & yield analytics summary.
-                  </p>
-                </div>
-              </div>
-
-              {/* KPI metrics grid */}
-              <div className="grid grid-cols-4 gap-4">
-                {[
-                  {
-                    label: "Production Flow Today",
-                    value: "16,241",
-                    unit: "BPD",
-                    icon: "gauge",
-                    color: "#2563eb",
-                  },
-                  {
-                    label: "Refinery operating load",
-                    value: "94.7%",
-                    unit: "Cap",
-                    icon: "zap",
-                    color: "#16a34a",
-                  },
-                  {
-                    label: "Total Volume Stored",
-                    value: "382,410",
-                    unit: "KL",
-                    icon: "database",
-                    color: "#0284c7",
-                  },
-                  {
-                    label: "Pending Approvals Queue",
-                    value: "4",
-                    unit: "Tasks",
-                    icon: "calendar",
-                    color: "#ca8a04",
-                  },
-                ].map((kpi, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm flex items-center gap-4"
-                  >
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-50"
-                      style={{ color: kpi.color }}
-                    >
-                      <Icon name={kpi.icon} size={18} />
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-bold text-slate-400 uppercase">
-                        {kpi.label}
-                      </div>
-                      <div className="text-lg font-bold text-slate-800 mt-0.5">
-                        {kpi.value}{" "}
-                        <span className="text-xs font-normal text-slate-500">
-                          {kpi.unit}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Charts row */}
-              <div className="grid grid-cols-3 gap-6">
-                <div className="col-span-2 bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col gap-4">
-                  <h3 className="text-xs font-bold text-slate-800">
-                    Production Flows & Product Yields (BPD)
-                  </h3>
-                  <div className="h-64">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <AreaChart data={productionFlowData}>
-                        <CartesianGrid
-                          strokeDasharray="3 3"
-                          stroke="#f1f5f9"
-                          vertical={false}
-                        />
-                        <XAxis
-                          dataKey="time"
-                          tick={{ fontSize: 10, fill: "#94a3b8" }}
-                        />
-                        <YAxis tick={{ fontSize: 10, fill: "#94a3b8" }} />
-                        <Tooltip />
-                        <Area
-                          type="monotone"
-                          dataKey="crude"
-                          stroke="#2563eb"
-                          fill="#2563eb"
-                          fillOpacity={0.05}
-                          strokeWidth={2}
-                        />
-                        <Area
-                          type="monotone"
-                          dataKey="diesel"
-                          stroke="#16a34a"
-                          fill="#16a34a"
-                          fillOpacity={0.03}
-                          strokeWidth={1.5}
-                        />
-                      </AreaChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col gap-4">
-                  <h3 className="text-xs font-bold text-slate-800">
-                    Inventory & Bulk Storage Summary
-                  </h3>
-                  <div className="flex flex-col gap-3">
-                    {tankInventoryData.map((t, idx) => (
-                      <div key={idx} className="flex flex-col gap-1">
-                        <div className="flex justify-between text-xs text-slate-700">
-                          <span>{t.name}</span>
-                          <span className="font-bold font-mono text-[11px]">
-                            {t.value}%
-                          </span>
-                        </div>
-                        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                          <div
-                            className="h-full rounded-full transition-all"
-                            style={{
-                              width: `${t.value}%`,
-                              backgroundColor: t.fill,
-                            }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div></div>
+            <DashboardView />
           ) : activeEntityKey === "prodplan" ? (
             <ProductionPlanningView db={db} setDb={setDb} />
           ) : activeEntityKey === "refining" ? (

@@ -81,9 +81,49 @@ export function RefiningManagementView({ db, setDb }: RefiningManagementViewProp
     (tank) => tank.details?.tankTag === "Finished Product Tank"
   ) || []
 
+  // Finance and Settlement Data
+  const financeModule = db.find((m) => m.key === "finance")
+  const paymentsReceived = financeModule?.transactions.find((t) => t.key === "paymentreceived")?.defaultData || []
+
   const activeOrder = prodOrders.find((o) => o.id === activeOrderId)
   const activeStep = executionSteps[activeStepIdx]
   const selectedTank = finishedProductTanks.find((t) => t.id === selectedTankId)
+
+  // Helper to resolve linked sales order details
+  const getLinkedSalesOrder = (salesOrderRef: string) => {
+    return salesOrders.find((so) => so.code === salesOrderRef)
+  }
+
+  // Settlement Calculation Helper
+  const getSettlementStatus = () => {
+    if (!activeOrder?.details?.salesOrderRef) return null
+    const linkedSo = getLinkedSalesOrder(activeOrder.details.salesOrderRef)
+    if (!linkedSo) return null
+
+    const totalRequired = Number(linkedSo.details?.totalAmount || 0)
+    const paymentTerms = linkedSo.details?.paymentTerms || ""
+    
+    // Sum of cleared payments
+    const payments = paymentsReceived.filter((p) => p.details?.salesOrderRef === linkedSo.code && p.status === "Cleared")
+    const totalPaid = payments.reduce((acc, p) => acc + Number(p.details?.amount || 0), 0)
+
+    // Determine required advance based on terms
+    let requiredPercentage = 0
+    if (paymentTerms === "100% Advance") requiredPercentage = 100
+    else if (paymentTerms === "30% Advance + 70% DP") requiredPercentage = 30
+    else if (paymentTerms === "LC at Sight" || paymentTerms === "CAD (Cash Against Documents)") requiredPercentage = 0 // Assuming letters of credit or CAD are verified outside
+
+    const requiredAdvanceAmount = (totalRequired * requiredPercentage) / 100
+    const isClearedForDispatch = totalPaid >= requiredAdvanceAmount || requiredPercentage === 0
+
+    return {
+      totalRequired,
+      totalPaid,
+      requiredAdvanceAmount,
+      isClearedForDispatch,
+      paymentTerms
+    }
+  }
 
   // Start execution sequence
   const handleStartExecution = (orderId: string) => {
@@ -242,6 +282,13 @@ export function RefiningManagementView({ db, setDb }: RefiningManagementViewProp
   const handleFinalizeDispatch = () => {
     if (!activeOrder) return
 
+    const settlement = getSettlementStatus()
+
+    if (dispatchMode === "packaging" && settlement && !settlement.isClearedForDispatch) {
+      alert(`Dispatch Blocked! Payment Settlement Pending.\n\nThe customer has not met the requirements for the agreed payment terms (${settlement.paymentTerms}).\n\nRequired Amount: $${settlement.requiredAdvanceAmount.toLocaleString()}\nTotal Paid: $${settlement.totalPaid.toLocaleString()}\n\nPlease contact the Finance team to clear the outstanding balance before dispatching the final product.`)
+      return
+    }
+
     if (dispatchMode === "tank") {
       if (!selectedTankId) {
         alert("Please select a Storage Tank.")
@@ -384,11 +431,6 @@ export function RefiningManagementView({ db, setDb }: RefiningManagementViewProp
     }
 
     setActiveOrderId(null)
-  }
-
-  // Helper to resolve linked sales order details
-  const getLinkedSalesOrder = (salesOrderRef: string) => {
-    return salesOrders.find((so) => so.code === salesOrderRef)
   }
 
   // Filter orders by active week
@@ -616,7 +658,29 @@ export function RefiningManagementView({ db, setDb }: RefiningManagementViewProp
                       <Icon name="package" size={13} className="text-slate-500" />
                       Configure Packaging Line Routing
                     </h4>
-                    <div className="flex flex-col gap-1">
+                    
+                    {(() => {
+                      const settlement = getSettlementStatus();
+                      if (settlement) {
+                        return (
+                          <div className={`p-3 rounded border text-[11px] font-medium flex flex-col gap-1.5 mt-1 ${settlement.isClearedForDispatch ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : 'bg-red-50 border-red-200 text-red-800'}`}>
+                            <div className="flex items-center gap-1.5 font-bold text-xs border-b border-black/5 pb-1">
+                              <Icon name={settlement.isClearedForDispatch ? "check-circle" : "alert-triangle"} size={13} />
+                              {settlement.isClearedForDispatch ? "Cleared for Dispatch" : "Dispatch Blocked - Payment Settlement Pending"}
+                            </div>
+                            <div className="grid grid-cols-2 gap-2 mt-1">
+                              <div><span className="opacity-75">Terms:</span> <strong className="font-mono">{settlement.paymentTerms}</strong></div>
+                              <div><span className="opacity-75">Total Value:</span> <strong className="font-mono">${settlement.totalRequired.toLocaleString()}</strong></div>
+                              <div><span className="opacity-75">Required Before Dispatch:</span> <strong className="font-mono">${settlement.requiredAdvanceAmount.toLocaleString()}</strong></div>
+                              <div><span className="opacity-75">Total Cleared Payment:</span> <strong className="font-mono">${settlement.totalPaid.toLocaleString()}</strong></div>
+                            </div>
+                          </div>
+                        )
+                      }
+                      return null;
+                    })()}
+
+                    <div className="flex flex-col gap-1 mt-1">
                       <label className="text-[10px] font-bold text-slate-400">Discharge Qty to Packaging (MT)</label>
                       <div className="relative w-48">
                         <input

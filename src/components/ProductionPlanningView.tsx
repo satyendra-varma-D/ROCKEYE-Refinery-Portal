@@ -44,8 +44,12 @@ export function ProductionPlanningView({
   ) => {
     setDb((prevDb) => {
       const commercialMod = prevDb.find((m) => m.key === "commercial")
-      const salesOrderTrx = commercialMod?.transactions.find((t) => t.key === "salesorder")
-      const targetSo = salesOrderTrx?.defaultData.find((so) => so.id === orderId)
+      const salesOrderTrx = commercialMod?.transactions.find(
+        (t) => t.key === "salesorder",
+      )
+      const targetSo = salesOrderTrx?.defaultData.find(
+        (so) => so.id === orderId,
+      )
       if (!targetSo) return prevDb
 
       return prevDb.map((mod) => {

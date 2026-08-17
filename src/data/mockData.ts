@@ -58,30 +58,176 @@ export const modulesData: ModuleConfig[] = [
         key: "customer",
         label: "Customer",
         fields: [
-          { key: "name", label: "Company Name", type: "text", required: true, section: "Company Details" },
-          { key: "companyCode", label: "Company Code", type: "text", required: true, section: "Company Details" },
-          { key: "incorporationDate", label: "Incorporation Date", type: "date", required: false, section: "Company Details" },
-          { key: "customerType", label: "Customer Type", type: "select", options: ["Internal", "External"], required: true, section: "Company Details" },
-          { key: "companyEmail", label: "Company Email", type: "text", required: false, section: "Company Details" },
-          { key: "referenceNumber", label: "Reference Number", type: "text", required: false, section: "Company Details" },
-          { key: "phone", label: "Company Phone Number", type: "text", required: true, section: "Company Contact Details" },
-          { key: "altPhone", label: "Alt Phone Number", type: "text", required: false, section: "Company Contact Details" },
-          { key: "currency", label: "Currency", type: "select", options: ["USD - United State Dollar ($)", "MYR - Malaysian Ringgit", "IDR - Indonesian Rupiah"], required: true, section: "Account Information" },
-          { key: "address", label: "Address", type: "text", required: true, section: "Company Address" },
-          { key: "country", label: "Country", type: "select", options: ["Malaysia", "Indonesia", "India", "Singapore"], required: true, section: "Company Address" },
-          { key: "state", label: "State", type: "text", required: true, section: "Company Address" },
-          { key: "city", label: "City", type: "text", required: false, section: "Company Address" },
-          { key: "zone", label: "Zone", type: "text", required: true, section: "Company Address" },
-          { key: "zipCode", label: "Zip Code", type: "text", required: false, section: "Company Address" },
-          { key: "remarks", label: "Remarks", type: "text", required: false, section: "Other Information" },
-          { key: "status", label: "Status", type: "select", options: ["Active", "Inactive"], required: true, section: "Other Information" },
-          
-          { key: "ownerFirstName", label: "Owner First Name", type: "text", required: true, section: "Owner Information" },
-          { key: "ownerLastName", label: "Owner Last Name", type: "text", required: true, section: "Owner Information" },
-          { key: "ownerEmail", label: "Owner Email", type: "text", required: true, section: "Owner Information" },
-          { key: "ownerDob", label: "Date Of Birth", type: "date", required: false, section: "Owner Information" },
-          { key: "ownerPhone", label: "Owner Phone Number", type: "text", required: true, section: "Owner Contact Details" },
-          { key: "ownerAltPhone", label: "Owner Alt Phone Number", type: "text", required: false, section: "Owner Contact Details" }
+          {
+            key: "name",
+            label: "Company Name",
+            type: "text",
+            required: true,
+            section: "Company Details",
+          },
+          {
+            key: "companyCode",
+            label: "Company Code",
+            type: "text",
+            required: true,
+            section: "Company Details",
+          },
+          {
+            key: "incorporationDate",
+            label: "Incorporation Date",
+            type: "date",
+            required: false,
+            section: "Company Details",
+          },
+          {
+            key: "customerType",
+            label: "Customer Type",
+            type: "select",
+            options: ["Internal", "External"],
+            required: true,
+            section: "Company Details",
+          },
+          {
+            key: "companyEmail",
+            label: "Company Email",
+            type: "text",
+            required: false,
+            section: "Company Details",
+          },
+          {
+            key: "referenceNumber",
+            label: "Reference Number",
+            type: "text",
+            required: false,
+            section: "Company Details",
+          },
+          {
+            key: "phone",
+            label: "Company Phone Number",
+            type: "text",
+            required: true,
+            section: "Company Contact Details",
+          },
+          {
+            key: "altPhone",
+            label: "Alt Phone Number",
+            type: "text",
+            required: false,
+            section: "Company Contact Details",
+          },
+          {
+            key: "currency",
+            label: "Currency",
+            type: "select",
+            options: [
+              "USD - United State Dollar ($)",
+              "MYR - Malaysian Ringgit",
+              "IDR - Indonesian Rupiah",
+            ],
+            required: true,
+            section: "Account Information",
+          },
+          {
+            key: "address",
+            label: "Address",
+            type: "text",
+            required: true,
+            section: "Company Address",
+          },
+          {
+            key: "country",
+            label: "Country",
+            type: "select",
+            options: ["Malaysia", "Indonesia", "India", "Singapore"],
+            required: true,
+            section: "Company Address",
+          },
+          {
+            key: "state",
+            label: "State",
+            type: "text",
+            required: true,
+            section: "Company Address",
+          },
+          {
+            key: "city",
+            label: "City",
+            type: "text",
+            required: false,
+            section: "Company Address",
+          },
+          {
+            key: "zone",
+            label: "Zone",
+            type: "text",
+            required: true,
+            section: "Company Address",
+          },
+          {
+            key: "zipCode",
+            label: "Zip Code",
+            type: "text",
+            required: false,
+            section: "Company Address",
+          },
+          {
+            key: "remarks",
+            label: "Remarks",
+            type: "text",
+            required: false,
+            section: "Other Information",
+          },
+          {
+            key: "status",
+            label: "Status",
+            type: "select",
+            options: ["Active", "Inactive"],
+            required: true,
+            section: "Other Information",
+          },
+
+          {
+            key: "ownerFirstName",
+            label: "Owner First Name",
+            type: "text",
+            required: true,
+            section: "Owner Information",
+          },
+          {
+            key: "ownerLastName",
+            label: "Owner Last Name",
+            type: "text",
+            required: true,
+            section: "Owner Information",
+          },
+          {
+            key: "ownerEmail",
+            label: "Owner Email",
+            type: "text",
+            required: true,
+            section: "Owner Information",
+          },
+          {
+            key: "ownerDob",
+            label: "Date Of Birth",
+            type: "date",
+            required: false,
+            section: "Owner Information",
+          },
+          {
+            key: "ownerPhone",
+            label: "Owner Phone Number",
+            type: "text",
+            required: true,
+            section: "Owner Contact Details",
+          },
+          {
+            key: "ownerAltPhone",
+            label: "Owner Alt Phone Number",
+            type: "text",
+            required: false,
+            section: "Owner Contact Details",
+          },
         ],
         defaultData: [
           {
@@ -105,7 +251,8 @@ export const modulesData: ModuleConfig[] = [
               phone: "(+234)-1234567890",
               altPhone: "",
               currency: "USD - United State Dollar ($)",
-              address: "2A, 2nd Floor, Inwinex Tower, D.No 8, Road No. 2, Venkat Nagar, Banjara Hills, Hyderabad, Telangana 500034",
+              address:
+                "2A, 2nd Floor, Inwinex Tower, D.No 8, Road No. 2, Venkat Nagar, Banjara Hills, Hyderabad, Telangana 500034",
               country: "India",
               state: "Telangana State",
               city: "Hyderabad",
@@ -113,13 +260,13 @@ export const modulesData: ModuleConfig[] = [
               zipCode: "500034",
               remarks: "Primary internal manufacturing client",
               status: "Active",
-              
+
               ownerFirstName: "David",
               ownerLastName: "Jones",
               ownerEmail: "owner212@yopmail.com",
               ownerDob: "2000-01-01",
               ownerPhone: "(+234)-1234567890",
-              ownerAltPhone: ""
+              ownerAltPhone: "",
             },
           },
         ],
@@ -130,21 +277,116 @@ export const modulesData: ModuleConfig[] = [
         key: "enquiry",
         label: "Customer Enquiry",
         fields: [
-          { key: "enquiryNo", label: "Enquiry Number", type: "text", required: true, section: "Enquiry Overview" },
-          { key: "enquiryDate", label: "Enquiry Date", type: "date", required: true, section: "Enquiry Overview" },
-          { key: "customer", label: "Customer", type: "select", options: ["Apex Technologies Pvt. Ltd.", "Adani Wilmar Palm Refinery", "Emami Agrotech Palm Division"], required: true, section: "Enquiry Overview" },
-          
-          { key: "product", label: "Product Required", type: "select", options: ["RBD Palm Olein (CP6)", "RBD Palm Olein (CP8)", "RBD Palm Olein (CP10)", "Crude Palm Oil (CPO)", "RBD Palm Stearin", "Palm Fatty Acid Distillate (PFAD)"], required: true, section: "Requirements Spec" },
-          { key: "quantity", label: "Quantity (MT)", type: "number", required: true, section: "Requirements Spec" },
-          { key: "packagingType", label: "Packaging Required", type: "select", options: ["Bulk Vessel", "Flexibag", "20L Jerrycan", "190kg Drum"], required: true, section: "Requirements Spec" },
-          
-          { key: "destinationPort", label: "Destination Port", type: "select", options: ["Rotterdam (NL)", "Nhava Sheva (IN)", "Shanghai (CN)", "Port Klang (MY)", "Belawan (ID)"], required: true, section: "Logistics Requested" },
-          { key: "incoterm", label: "Requested Incoterm", type: "select", options: ["FOB", "CIF", "CFR"], required: true, section: "Logistics Requested" },
-          { key: "targetDate", label: "Target Loading Date", type: "date", required: true, section: "Logistics Requested" },
-          
-          { key: "expectedPrice", label: "Target Price (USD / MT)", type: "number", required: true, section: "Commercial Target" },
-          { key: "specialInstructions", label: "FFA / Quality Specifications", type: "text", required: false, section: "Other Requirements" },
-          { key: "status", label: "Enquiry Status", type: "select", options: ["Pending", "Accepted", "Rejected"], required: true, section: "Other Information" }
+          {
+            key: "enquiryNo",
+            label: "Enquiry Number",
+            type: "text",
+            required: true,
+            section: "Enquiry Overview",
+          },
+          {
+            key: "enquiryDate",
+            label: "Enquiry Date",
+            type: "date",
+            required: true,
+            section: "Enquiry Overview",
+          },
+          {
+            key: "customer",
+            label: "Customer",
+            type: "select",
+            options: [
+              "Apex Technologies Pvt. Ltd.",
+              "Adani Wilmar Palm Refinery",
+              "Emami Agrotech Palm Division",
+            ],
+            required: true,
+            section: "Enquiry Overview",
+          },
+
+          {
+            key: "product",
+            label: "Product Required",
+            type: "select",
+            options: [
+              "RBD Palm Olein (CP6)",
+              "RBD Palm Olein (CP8)",
+              "RBD Palm Olein (CP10)",
+              "Crude Palm Oil (CPO)",
+              "RBD Palm Stearin",
+              "Palm Fatty Acid Distillate (PFAD)",
+            ],
+            required: true,
+            section: "Requirements Spec",
+          },
+          {
+            key: "quantity",
+            label: "Quantity (MT)",
+            type: "number",
+            required: true,
+            section: "Requirements Spec",
+          },
+          {
+            key: "packagingType",
+            label: "Packaging Required",
+            type: "select",
+            options: ["Bulk Vessel", "Flexibag", "20L Jerrycan", "190kg Drum"],
+            required: true,
+            section: "Requirements Spec",
+          },
+
+          {
+            key: "destinationPort",
+            label: "Destination Port",
+            type: "select",
+            options: [
+              "Rotterdam (NL)",
+              "Nhava Sheva (IN)",
+              "Shanghai (CN)",
+              "Port Klang (MY)",
+              "Belawan (ID)",
+            ],
+            required: true,
+            section: "Logistics Requested",
+          },
+          {
+            key: "incoterm",
+            label: "Requested Incoterm",
+            type: "select",
+            options: ["FOB", "CIF", "CFR"],
+            required: true,
+            section: "Logistics Requested",
+          },
+          {
+            key: "targetDate",
+            label: "Target Loading Date",
+            type: "date",
+            required: true,
+            section: "Logistics Requested",
+          },
+
+          {
+            key: "expectedPrice",
+            label: "Target Price (USD / MT)",
+            type: "number",
+            required: true,
+            section: "Commercial Target",
+          },
+          {
+            key: "specialInstructions",
+            label: "FFA / Quality Specifications",
+            type: "text",
+            required: false,
+            section: "Other Requirements",
+          },
+          {
+            key: "status",
+            label: "Enquiry Status",
+            type: "select",
+            options: ["Pending", "Accepted", "Rejected"],
+            required: true,
+            section: "Other Information",
+          },
         ],
         defaultData: [
           {
@@ -172,7 +414,7 @@ export const modulesData: ModuleConfig[] = [
               targetDate: "2026-08-25",
               expectedPrice: 850,
               specialInstructions: "FFA < 0.1%, M&I < 0.1%, Color (5.25R max)",
-              status: "Pending"
+              status: "Pending",
             },
           },
         ],
@@ -181,27 +423,177 @@ export const modulesData: ModuleConfig[] = [
         key: "quotation",
         label: "Quotation",
         fields: [
-          { key: "quotationNo", label: "Quotation No", type: "text", required: true, section: "Quotation Details" },
-          { key: "quotationDate", label: "Quotation Date", type: "date", required: true, section: "Quotation Details" },
-          { key: "expiryDate", label: "Expiry Date", type: "date", required: true, section: "Quotation Details" },
-          { key: "customer", label: "Customer", type: "select", options: ["Apex Technologies Pvt. Ltd.", "Adani Wilmar Palm Refinery", "Emami Agrotech Palm Division"], required: true, section: "Quotation Details" },
-          { key: "enquiryRef", label: "Enquiry Reference", type: "text", required: false, section: "Quotation Details" },
-          
-          { key: "product", label: "Product Offered", type: "select", options: ["RBD Palm Olein (CP6)", "RBD Palm Olein (CP8)", "RBD Palm Olein (CP10)", "Crude Palm Oil (CPO)", "RBD Palm Stearin", "Palm Fatty Acid Distillate (PFAD)"], required: true, section: "Logistics Details" },
-          { key: "quantity", label: "Quoted Quantity (MT)", type: "number", required: true, section: "Logistics Details" },
-          { key: "packagingType", label: "Packaging Type", type: "select", options: ["Bulk Vessel", "Flexibag", "20L Jerrycan", "190kg Drum"], required: true, section: "Logistics Details" },
-          { key: "destinationPort", label: "Destination Port", type: "select", options: ["Rotterdam (NL)", "Nhava Sheva (IN)", "Shanghai (CN)", "Port Klang (MY)", "Belawan (ID)"], required: true, section: "Logistics Details" },
-          { key: "incoterm", label: "Incoterm", type: "select", options: ["FOB", "CIF", "CFR"], required: true, section: "Logistics Details" },
-          { key: "loadingPort", label: "Port of Loading", type: "select", options: ["Port Klang (MY)", "Pasir Gudang (MY)", "Belawan (ID)", "Dumai (ID)"], required: true, section: "Logistics Details" },
-          
-          { key: "currency", label: "Currency", type: "select", options: ["USD", "MYR", "IDR"], required: true, section: "Pricing & Financials" },
-          { key: "unitPrice", label: "Unit Price (USD / MT)", type: "number", required: true, section: "Pricing & Financials" },
-          { key: "discount", label: "Discount Amount", type: "number", required: false, section: "Pricing & Financials" },
-          { key: "tax", label: "Export Duty / Tax %", type: "number", required: false, section: "Pricing & Financials" },
-          { key: "paymentTerms", label: "Payment Terms", type: "select", options: ["LC at Sight", "CAD (Cash Against Documents)", "30% Advance + 70% DP", "100% Advance"], required: true, section: "Pricing & Financials" },
-          
-          { key: "status", label: "Status", type: "select", options: ["Draft", "Sent to Customer", "Approved", "Expired", "Rejected"], required: true, section: "Execution Details" },
-          { key: "salesExecutive", label: "Sales Representative", type: "text", required: true, section: "Execution Details" }
+          {
+            key: "quotationNo",
+            label: "Quotation No",
+            type: "text",
+            required: true,
+            section: "Quotation Details",
+          },
+          {
+            key: "quotationDate",
+            label: "Quotation Date",
+            type: "date",
+            required: true,
+            section: "Quotation Details",
+          },
+          {
+            key: "expiryDate",
+            label: "Expiry Date",
+            type: "date",
+            required: true,
+            section: "Quotation Details",
+          },
+          {
+            key: "customer",
+            label: "Customer",
+            type: "select",
+            options: [
+              "Apex Technologies Pvt. Ltd.",
+              "Adani Wilmar Palm Refinery",
+              "Emami Agrotech Palm Division",
+            ],
+            required: true,
+            section: "Quotation Details",
+          },
+          {
+            key: "enquiryRef",
+            label: "Enquiry Reference",
+            type: "text",
+            required: false,
+            section: "Quotation Details",
+          },
+
+          {
+            key: "product",
+            label: "Product Offered",
+            type: "select",
+            options: [
+              "RBD Palm Olein (CP6)",
+              "RBD Palm Olein (CP8)",
+              "RBD Palm Olein (CP10)",
+              "Crude Palm Oil (CPO)",
+              "RBD Palm Stearin",
+              "Palm Fatty Acid Distillate (PFAD)",
+            ],
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "quantity",
+            label: "Quoted Quantity (MT)",
+            type: "number",
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "packagingType",
+            label: "Packaging Type",
+            type: "select",
+            options: ["Bulk Vessel", "Flexibag", "20L Jerrycan", "190kg Drum"],
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "destinationPort",
+            label: "Destination Port",
+            type: "select",
+            options: [
+              "Rotterdam (NL)",
+              "Nhava Sheva (IN)",
+              "Shanghai (CN)",
+              "Port Klang (MY)",
+              "Belawan (ID)",
+            ],
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "incoterm",
+            label: "Incoterm",
+            type: "select",
+            options: ["FOB", "CIF", "CFR"],
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "loadingPort",
+            label: "Port of Loading",
+            type: "select",
+            options: [
+              "Port Klang (MY)",
+              "Pasir Gudang (MY)",
+              "Belawan (ID)",
+              "Dumai (ID)",
+            ],
+            required: true,
+            section: "Logistics Details",
+          },
+
+          {
+            key: "currency",
+            label: "Currency",
+            type: "select",
+            options: ["USD", "MYR", "IDR"],
+            required: true,
+            section: "Pricing & Financials",
+          },
+          {
+            key: "unitPrice",
+            label: "Unit Price (USD / MT)",
+            type: "number",
+            required: true,
+            section: "Pricing & Financials",
+          },
+          {
+            key: "discount",
+            label: "Discount Amount",
+            type: "number",
+            required: false,
+            section: "Pricing & Financials",
+          },
+          {
+            key: "tax",
+            label: "Export Duty / Tax %",
+            type: "number",
+            required: false,
+            section: "Pricing & Financials",
+          },
+          {
+            key: "paymentTerms",
+            label: "Payment Terms",
+            type: "select",
+            options: [
+              "LC at Sight",
+              "CAD (Cash Against Documents)",
+              "30% Advance + 70% DP",
+              "100% Advance",
+            ],
+            required: true,
+            section: "Pricing & Financials",
+          },
+
+          {
+            key: "status",
+            label: "Status",
+            type: "select",
+            options: [
+              "Draft",
+              "Sent to Customer",
+              "Approved",
+              "Expired",
+              "Rejected",
+            ],
+            required: true,
+            section: "Execution Details",
+          },
+          {
+            key: "salesExecutive",
+            label: "Sales Representative",
+            type: "text",
+            required: true,
+            section: "Execution Details",
+          },
         ],
         defaultData: [
           {
@@ -235,7 +627,7 @@ export const modulesData: ModuleConfig[] = [
               tax: 0,
               paymentTerms: "LC at Sight",
               status: "Approved",
-              salesExecutive: "Arjun Kumar"
+              salesExecutive: "Arjun Kumar",
             },
           },
         ],
@@ -244,25 +636,163 @@ export const modulesData: ModuleConfig[] = [
         key: "salesorder",
         label: "Sales Order",
         fields: [
-          { key: "salesOrderNo", label: "Sales Order No", type: "text", required: true, section: "Sales Order Details" },
-          { key: "salesOrderDate", label: "Sales Order Date", type: "date", required: true, section: "Sales Order Details" },
-          { key: "customer", label: "Customer", type: "select", options: ["Apex Technologies Pvt. Ltd.", "Adani Wilmar Palm Refinery", "Emami Agrotech Palm Division"], required: true, section: "Sales Order Details" },
-          { key: "quotationRef", label: "Quotation Reference", type: "text", required: false, section: "Sales Order Details" },
-          
-          { key: "product", label: "Product Ordered", type: "select", options: ["RBD Palm Olein (CP6)", "RBD Palm Olein (CP8)", "RBD Palm Olein (CP10)", "Crude Palm Oil (CPO)", "RBD Palm Stearin", "Palm Fatty Acid Distillate (PFAD)"], required: true, section: "Logistics Details" },
-          { key: "quantity", label: "Ordered Quantity (MT)", type: "number", required: true, section: "Logistics Details" },
-          { key: "packagingType", label: "Packaging Type", type: "select", options: ["Bulk Vessel", "Flexibag", "20L Jerrycan", "190kg Drum"], required: true, section: "Logistics Details" },
-          { key: "destinationPort", label: "Destination Port", type: "select", options: ["Rotterdam (NL)", "Nhava Sheva (IN)", "Shanghai (CN)", "Port Klang (MY)", "Belawan (ID)"], required: true, section: "Logistics Details" },
-          { key: "incoterm", label: "Incoterm", type: "select", options: ["FOB", "CIF", "CFR"], required: true, section: "Logistics Details" },
-          { key: "loadingPort", label: "Port of Loading", type: "select", options: ["Port Klang (MY)", "Pasir Gudang (MY)", "Belawan (ID)", "Dumai (ID)"], required: true, section: "Logistics Details" },
-          
-          { key: "currency", label: "Currency", type: "select", options: ["USD", "MYR", "IDR"], required: true, section: "Pricing Details" },
-          { key: "unitPrice", label: "Unit Price (USD / MT)", type: "number", required: true, section: "Pricing Details" },
-          { key: "totalAmount", label: "Total Order Value (USD)", type: "number", required: true, section: "Pricing Details" },
-          { key: "paymentTerms", label: "Payment Terms", type: "select", options: ["LC at Sight", "CAD (Cash Against Documents)", "30% Advance + 70% DP", "100% Advance"], required: true, section: "Pricing Details" },
-          
-          { key: "requestedDeliveryDate", label: "Requested Delivery Date", type: "date", required: true, section: "Execution Status" },
-          { key: "status", label: "Status", type: "select", options: ["Open", "Awaiting Schedule", "Planned", "Dispatched", "Closed"], required: true, section: "Execution Status" }
+          {
+            key: "salesOrderNo",
+            label: "Sales Order No",
+            type: "text",
+            required: true,
+            section: "Sales Order Details",
+          },
+          {
+            key: "salesOrderDate",
+            label: "Sales Order Date",
+            type: "date",
+            required: true,
+            section: "Sales Order Details",
+          },
+          {
+            key: "customer",
+            label: "Customer",
+            type: "select",
+            options: [
+              "Apex Technologies Pvt. Ltd.",
+              "Adani Wilmar Palm Refinery",
+              "Emami Agrotech Palm Division",
+            ],
+            required: true,
+            section: "Sales Order Details",
+          },
+          {
+            key: "quotationRef",
+            label: "Quotation Reference",
+            type: "text",
+            required: false,
+            section: "Sales Order Details",
+          },
+
+          {
+            key: "product",
+            label: "Product Ordered",
+            type: "select",
+            options: [
+              "RBD Palm Olein (CP6)",
+              "RBD Palm Olein (CP8)",
+              "RBD Palm Olein (CP10)",
+              "Crude Palm Oil (CPO)",
+              "RBD Palm Stearin",
+              "Palm Fatty Acid Distillate (PFAD)",
+            ],
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "quantity",
+            label: "Ordered Quantity (MT)",
+            type: "number",
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "packagingType",
+            label: "Packaging Type",
+            type: "select",
+            options: ["Bulk Vessel", "Flexibag", "20L Jerrycan", "190kg Drum"],
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "destinationPort",
+            label: "Destination Port",
+            type: "select",
+            options: [
+              "Rotterdam (NL)",
+              "Nhava Sheva (IN)",
+              "Shanghai (CN)",
+              "Port Klang (MY)",
+              "Belawan (ID)",
+            ],
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "incoterm",
+            label: "Incoterm",
+            type: "select",
+            options: ["FOB", "CIF", "CFR"],
+            required: true,
+            section: "Logistics Details",
+          },
+          {
+            key: "loadingPort",
+            label: "Port of Loading",
+            type: "select",
+            options: [
+              "Port Klang (MY)",
+              "Pasir Gudang (MY)",
+              "Belawan (ID)",
+              "Dumai (ID)",
+            ],
+            required: true,
+            section: "Logistics Details",
+          },
+
+          {
+            key: "currency",
+            label: "Currency",
+            type: "select",
+            options: ["USD", "MYR", "IDR"],
+            required: true,
+            section: "Pricing Details",
+          },
+          {
+            key: "unitPrice",
+            label: "Unit Price (USD / MT)",
+            type: "number",
+            required: true,
+            section: "Pricing Details",
+          },
+          {
+            key: "totalAmount",
+            label: "Total Order Value (USD)",
+            type: "number",
+            required: true,
+            section: "Pricing Details",
+          },
+          {
+            key: "paymentTerms",
+            label: "Payment Terms",
+            type: "select",
+            options: [
+              "LC at Sight",
+              "CAD (Cash Against Documents)",
+              "30% Advance + 70% DP",
+              "100% Advance",
+            ],
+            required: true,
+            section: "Pricing Details",
+          },
+
+          {
+            key: "requestedDeliveryDate",
+            label: "Requested Delivery Date",
+            type: "date",
+            required: true,
+            section: "Execution Status",
+          },
+          {
+            key: "status",
+            label: "Status",
+            type: "select",
+            options: [
+              "Open",
+              "Awaiting Schedule",
+              "Planned",
+              "Dispatched",
+              "Closed",
+            ],
+            required: true,
+            section: "Execution Status",
+          },
         ],
         defaultData: [
           {
@@ -294,7 +824,7 @@ export const modulesData: ModuleConfig[] = [
               totalAmount: 427500,
               paymentTerms: "LC at Sight",
               requestedDeliveryDate: "2026-08-25",
-              status: "Open"
+              status: "Open",
             },
           },
           {
@@ -326,7 +856,7 @@ export const modulesData: ModuleConfig[] = [
               totalAmount: 249000,
               paymentTerms: "30% Advance + 70% DP",
               requestedDeliveryDate: "2026-08-28",
-              status: "Open"
+              status: "Open",
             },
           },
           {
@@ -358,7 +888,7 @@ export const modulesData: ModuleConfig[] = [
               totalAmount: 688000,
               paymentTerms: "LC at Sight",
               requestedDeliveryDate: "2026-09-02",
-              status: "Open"
+              status: "Open",
             },
           },
           {
@@ -390,9 +920,9 @@ export const modulesData: ModuleConfig[] = [
               totalAmount: 130000,
               paymentTerms: "CAD (Cash Against Documents)",
               requestedDeliveryDate: "2026-09-05",
-              status: "Open"
+              status: "Open",
             },
-          }
+          },
         ],
       },
     ],
@@ -406,35 +936,217 @@ export const modulesData: ModuleConfig[] = [
         key: "supplier",
         label: "Supplier",
         fields: [
-          { key: "name", label: "Name of Organization", type: "text", required: true, section: "Basic Information" },
-          { key: "shortName", label: "Short Name", type: "text", required: false, section: "Basic Information" },
-          { key: "refCode", label: "Ref Code", type: "text", required: false, section: "Basic Information" },
-          { key: "currency", label: "Currency", type: "select", options: ["USD - United State Dollar ($)", "MYR - Malaysian Ringgit", "IDR - Indonesian Rupiah"], required: true, section: "Basic Information" },
-          { key: "parentGl", label: "Parent General Ledger", type: "select", options: ["Trade Payable - CPO", "Trade Payable - Additives", "Trade Payable - Packaging"], required: false, section: "Basic Information" },
-          { key: "formOfBusiness", label: "Form Of Business", type: "select", options: ["Partnership", "Sole Proprietorship", "Public Limited", "Private Limited"], required: false, section: "Basic Information" },
-          { key: "dateOfIncorporation", label: "Date Of Incorporation", type: "date", required: false, section: "Basic Information" },
-          { key: "typeOfBusiness", label: "Type Of Business", type: "select", options: ["Raw Material Supplier", "Chemical Supplier", "Packaging Vendor", "Logistic Partner"], required: false, section: "Basic Information" },
-          { key: "maxAdvance", label: "Max Advance (%)", type: "select", options: ["10", "20", "30", "50", "70"], required: false, section: "Basic Information" },
-          { key: "printName", label: "Print Name", type: "text", required: true, section: "Basic Information" },
-          { key: "whatsappNum", label: "Whatsapp Num", type: "text", required: false, section: "Basic Information" },
-          
-          { key: "email", label: "Email Address", type: "text", required: true, section: "Communication Info" },
-          { key: "mobileNo", label: "Mobile No", type: "text", required: true, section: "Communication Info" },
-          { key: "websiteUrl", label: "Website URL", type: "text", required: false, section: "Communication Info" },
-          { key: "faxNo", label: "Fax No", type: "text", required: false, section: "Communication Info" },
-          { key: "additionalPaymentInstruction", label: "Additional Payment Instruction", type: "text", required: false, section: "Communication Info" },
-          
-          { key: "streetAddress", label: "Street Address", type: "text", required: true, section: "Corporate Address" },
-          { key: "country", label: "Country", type: "select", options: ["Malaysia", "Indonesia", "India", "Singapore"], required: true, section: "Corporate Address" },
-          { key: "state", label: "State", type: "text", required: true, section: "Corporate Address" },
-          { key: "city", label: "City", type: "text", required: false, section: "Corporate Address" },
-          { key: "postCode", label: "Post Code", type: "text", required: false, section: "Corporate Address" },
-          
-          { key: "contactTitle", label: "Title", type: "select", options: ["Mr", "Ms", "Dr"], required: false, section: "Contact Person" },
-          { key: "contactName", label: "Name", type: "text", required: true, section: "Contact Person" },
-          { key: "contactGender", label: "Gender", type: "select", options: ["Male", "Female", "Other"], required: false, section: "Contact Person" },
-          { key: "contactEmail", label: "Email", type: "text", required: true, section: "Contact Person" },
-          { key: "contactMobile", label: "Mobile", type: "text", required: true, section: "Contact Person" }
+          {
+            key: "name",
+            label: "Name of Organization",
+            type: "text",
+            required: true,
+            section: "Basic Information",
+          },
+          {
+            key: "shortName",
+            label: "Short Name",
+            type: "text",
+            required: false,
+            section: "Basic Information",
+          },
+          {
+            key: "refCode",
+            label: "Ref Code",
+            type: "text",
+            required: false,
+            section: "Basic Information",
+          },
+          {
+            key: "currency",
+            label: "Currency",
+            type: "select",
+            options: [
+              "USD - United State Dollar ($)",
+              "MYR - Malaysian Ringgit",
+              "IDR - Indonesian Rupiah",
+            ],
+            required: true,
+            section: "Basic Information",
+          },
+          {
+            key: "parentGl",
+            label: "Parent General Ledger",
+            type: "select",
+            options: [
+              "Trade Payable - CPO",
+              "Trade Payable - Additives",
+              "Trade Payable - Packaging",
+            ],
+            required: false,
+            section: "Basic Information",
+          },
+          {
+            key: "formOfBusiness",
+            label: "Form Of Business",
+            type: "select",
+            options: [
+              "Partnership",
+              "Sole Proprietorship",
+              "Public Limited",
+              "Private Limited",
+            ],
+            required: false,
+            section: "Basic Information",
+          },
+          {
+            key: "dateOfIncorporation",
+            label: "Date Of Incorporation",
+            type: "date",
+            required: false,
+            section: "Basic Information",
+          },
+          {
+            key: "typeOfBusiness",
+            label: "Type Of Business",
+            type: "select",
+            options: [
+              "Raw Material Supplier",
+              "Chemical Supplier",
+              "Packaging Vendor",
+              "Logistic Partner",
+            ],
+            required: false,
+            section: "Basic Information",
+          },
+          {
+            key: "maxAdvance",
+            label: "Max Advance (%)",
+            type: "select",
+            options: ["10", "20", "30", "50", "70"],
+            required: false,
+            section: "Basic Information",
+          },
+          {
+            key: "printName",
+            label: "Print Name",
+            type: "text",
+            required: true,
+            section: "Basic Information",
+          },
+          {
+            key: "whatsappNum",
+            label: "Whatsapp Num",
+            type: "text",
+            required: false,
+            section: "Basic Information",
+          },
+
+          {
+            key: "email",
+            label: "Email Address",
+            type: "text",
+            required: true,
+            section: "Communication Info",
+          },
+          {
+            key: "mobileNo",
+            label: "Mobile No",
+            type: "text",
+            required: true,
+            section: "Communication Info",
+          },
+          {
+            key: "websiteUrl",
+            label: "Website URL",
+            type: "text",
+            required: false,
+            section: "Communication Info",
+          },
+          {
+            key: "faxNo",
+            label: "Fax No",
+            type: "text",
+            required: false,
+            section: "Communication Info",
+          },
+          {
+            key: "additionalPaymentInstruction",
+            label: "Additional Payment Instruction",
+            type: "text",
+            required: false,
+            section: "Communication Info",
+          },
+
+          {
+            key: "streetAddress",
+            label: "Street Address",
+            type: "text",
+            required: true,
+            section: "Corporate Address",
+          },
+          {
+            key: "country",
+            label: "Country",
+            type: "select",
+            options: ["Malaysia", "Indonesia", "India", "Singapore"],
+            required: true,
+            section: "Corporate Address",
+          },
+          {
+            key: "state",
+            label: "State",
+            type: "text",
+            required: true,
+            section: "Corporate Address",
+          },
+          {
+            key: "city",
+            label: "City",
+            type: "text",
+            required: false,
+            section: "Corporate Address",
+          },
+          {
+            key: "postCode",
+            label: "Post Code",
+            type: "text",
+            required: false,
+            section: "Corporate Address",
+          },
+
+          {
+            key: "contactTitle",
+            label: "Title",
+            type: "select",
+            options: ["Mr", "Ms", "Dr"],
+            required: false,
+            section: "Contact Person",
+          },
+          {
+            key: "contactName",
+            label: "Name",
+            type: "text",
+            required: true,
+            section: "Contact Person",
+          },
+          {
+            key: "contactGender",
+            label: "Gender",
+            type: "select",
+            options: ["Male", "Female", "Other"],
+            required: false,
+            section: "Contact Person",
+          },
+          {
+            key: "contactEmail",
+            label: "Email",
+            type: "text",
+            required: true,
+            section: "Contact Person",
+          },
+          {
+            key: "contactMobile",
+            label: "Mobile",
+            type: "text",
+            required: true,
+            section: "Contact Person",
+          },
         ],
         defaultData: [
           {
@@ -468,8 +1180,10 @@ export const modulesData: ModuleConfig[] = [
               mobileNo: "+60-12-345-6789",
               websiteUrl: "https://www.simedarbyoils.com",
               faxNo: "+60-12-345-6780",
-              additionalPaymentInstruction: "All invoices trade in USD bank accounts.",
-              streetAddress: "Level 9, Sime Darby Plantation Tower, No. 2, Jalan PJU 1A/7, Ara Damansara",
+              additionalPaymentInstruction:
+                "All invoices trade in USD bank accounts.",
+              streetAddress:
+                "Level 9, Sime Darby Plantation Tower, No. 2, Jalan PJU 1A/7, Ara Damansara",
               country: "Malaysia",
               state: "Selangor",
               city: "Petaling Jaya",
@@ -478,7 +1192,7 @@ export const modulesData: ModuleConfig[] = [
               contactName: "Mohd Yazid",
               contactGender: "Male",
               contactEmail: "yazid.mohd@simedarby.com",
-              contactMobile: "+60-12-345-6789"
+              contactMobile: "+60-12-345-6789",
             },
           },
           {
@@ -512,8 +1226,10 @@ export const modulesData: ModuleConfig[] = [
               mobileNo: "+60-11-2234-5678",
               websiteUrl: "https://www.serimaju.com.my",
               faxNo: "+60-11-2234-5670",
-              additionalPaymentInstruction: "30 days credit term upon delivery.",
-              streetAddress: "No. 12, Jalan Industri 3, Taman Perindustrian Puchong",
+              additionalPaymentInstruction:
+                "30 days credit term upon delivery.",
+              streetAddress:
+                "No. 12, Jalan Industri 3, Taman Perindustrian Puchong",
               country: "Malaysia",
               state: "Selangor",
               city: "Puchong",
@@ -522,7 +1238,7 @@ export const modulesData: ModuleConfig[] = [
               contactName: "Lim Mei Ying",
               contactGender: "Female",
               contactEmail: "meiying@serimaju.com.my",
-              contactMobile: "+60-11-2234-5678"
+              contactMobile: "+60-11-2234-5678",
             },
           },
           {
@@ -556,7 +1272,8 @@ export const modulesData: ModuleConfig[] = [
               mobileNo: "+62-21-5555-8899",
               websiteUrl: "https://www.wilmar-international.com",
               faxNo: "+62-21-5555-8890",
-              additionalPaymentInstruction: "LC only — no advance payments accepted.",
+              additionalPaymentInstruction:
+                "LC only — no advance payments accepted.",
               streetAddress: "Jl. Jendral Sudirman Kav. 54-55, Sudirman Plaza",
               country: "Indonesia",
               state: "DKI Jakarta",
@@ -566,7 +1283,7 @@ export const modulesData: ModuleConfig[] = [
               contactName: "Budi Santoso",
               contactGender: "Male",
               contactEmail: "budi.santoso@wilmar-id.com",
-              contactMobile: "+62-812-3456-7890"
+              contactMobile: "+62-812-3456-7890",
             },
           },
           {
@@ -600,7 +1317,8 @@ export const modulesData: ModuleConfig[] = [
               mobileNo: "+60-16-789-0012",
               websiteUrl: "https://www.ioigroup.com",
               faxNo: "+60-16-789-0010",
-              additionalPaymentInstruction: "Payment via TT within 15 days of invoice.",
+              additionalPaymentInstruction:
+                "Payment via TT within 15 days of invoice.",
               streetAddress: "2 IOI Square, IOI Resort City, Putrajaya",
               country: "Malaysia",
               state: "Putrajaya",
@@ -610,7 +1328,7 @@ export const modulesData: ModuleConfig[] = [
               contactName: "Raj Kumar",
               contactGender: "Male",
               contactEmail: "raj.kumar@ioioleo.com.my",
-              contactMobile: "+60-16-789-0012"
+              contactMobile: "+60-16-789-0012",
             },
           },
         ],
@@ -621,27 +1339,154 @@ export const modulesData: ModuleConfig[] = [
         key: "po",
         label: "Purchase Order",
         fields: [
-          { key: "poNo", label: "PO No Code", type: "text", required: true, section: "PO Info Header" },
-          { key: "poDate", label: "PO Date", type: "date", required: true, section: "PO Info Header" },
-          { key: "supplier", label: "Vendor", type: "select", options: ["Sime Darby Oils Trading"], required: true, section: "PO Info Header" },
-          { key: "securityPaymentTerms", label: "Security Payment Terms", type: "select", options: ["100% CAD", "30% Advance + 70% DP", "LC at Sight"], required: false, section: "PO Info Header" },
-          { key: "preferredBank", label: "Vendor Preferred Bank", type: "select", options: ["Maybank Berhad", "CIMB Bank", "Standard Chartered"], required: false, section: "PO Info Header" },
-          
-          { key: "currency", label: "Currency", type: "select", options: ["USD", "MYR", "IDR"], required: true, section: "Pricing & Trade" },
-          { key: "exgRate", label: "Exg Rate", type: "number", required: true, section: "Pricing & Trade" },
-          { key: "vendorRefNo", label: "Vendor Ref No", type: "text", required: false, section: "Pricing & Trade" },
-          { key: "costCenter", label: "Cost Center", type: "select", options: ["Refinery Operations", "Utility Plant", "Logistics Fleet"], required: true, section: "Pricing & Trade" },
-          { key: "priceRating", label: "Price Rating", type: "select", options: ["Fair", "Favorable", "Unfavorable"], required: false, section: "Pricing & Trade" },
-          { key: "vatWithheld", label: "VAT Withheld?", type: "select", options: ["Yes", "No"], required: false, section: "Pricing & Trade" },
-          { key: "inputTaxCredit", label: "Input Tax Credit?", type: "select", options: ["Yes", "No"], required: false, section: "Pricing & Trade" },
-          
-          { key: "product", label: "Item Name", type: "select", options: ["Crude Palm Oil (CPO)", "Bleaching Earth", "Phosphoric Acid", "Coal Fuel Stock"], required: true, section: "Material Selection" },
-          { key: "quantity", label: "Ordered Qty (MT)", type: "number", required: true, section: "Material Selection" },
-          { key: "unitPrice", label: "Unit Price", type: "number", required: true, section: "Material Selection" },
-          { key: "totalAmount", label: "Total Taxable Amt", type: "number", required: true, section: "Material Selection" },
-          { key: "deliveryDate", label: "Expected Delivery Date", type: "date", required: true, section: "Material Selection" },
-          
-          { key: "status", label: "Status", type: "select", options: ["Draft", "Approved", "Sent to Supplier", "Closed"], required: true, section: "Execution Details" }
+          {
+            key: "poNo",
+            label: "PO No Code",
+            type: "text",
+            required: true,
+            section: "PO Info Header",
+          },
+          {
+            key: "poDate",
+            label: "PO Date",
+            type: "date",
+            required: true,
+            section: "PO Info Header",
+          },
+          {
+            key: "supplier",
+            label: "Vendor",
+            type: "select",
+            options: ["Sime Darby Oils Trading"],
+            required: true,
+            section: "PO Info Header",
+          },
+          {
+            key: "securityPaymentTerms",
+            label: "Security Payment Terms",
+            type: "select",
+            options: ["100% CAD", "30% Advance + 70% DP", "LC at Sight"],
+            required: false,
+            section: "PO Info Header",
+          },
+          {
+            key: "preferredBank",
+            label: "Vendor Preferred Bank",
+            type: "select",
+            options: ["Maybank Berhad", "CIMB Bank", "Standard Chartered"],
+            required: false,
+            section: "PO Info Header",
+          },
+
+          {
+            key: "currency",
+            label: "Currency",
+            type: "select",
+            options: ["USD", "MYR", "IDR"],
+            required: true,
+            section: "Pricing & Trade",
+          },
+          {
+            key: "exgRate",
+            label: "Exg Rate",
+            type: "number",
+            required: true,
+            section: "Pricing & Trade",
+          },
+          {
+            key: "vendorRefNo",
+            label: "Vendor Ref No",
+            type: "text",
+            required: false,
+            section: "Pricing & Trade",
+          },
+          {
+            key: "costCenter",
+            label: "Cost Center",
+            type: "select",
+            options: [
+              "Refinery Operations",
+              "Utility Plant",
+              "Logistics Fleet",
+            ],
+            required: true,
+            section: "Pricing & Trade",
+          },
+          {
+            key: "priceRating",
+            label: "Price Rating",
+            type: "select",
+            options: ["Fair", "Favorable", "Unfavorable"],
+            required: false,
+            section: "Pricing & Trade",
+          },
+          {
+            key: "vatWithheld",
+            label: "VAT Withheld?",
+            type: "select",
+            options: ["Yes", "No"],
+            required: false,
+            section: "Pricing & Trade",
+          },
+          {
+            key: "inputTaxCredit",
+            label: "Input Tax Credit?",
+            type: "select",
+            options: ["Yes", "No"],
+            required: false,
+            section: "Pricing & Trade",
+          },
+
+          {
+            key: "product",
+            label: "Item Name",
+            type: "select",
+            options: [
+              "Crude Palm Oil (CPO)",
+              "Bleaching Earth",
+              "Phosphoric Acid",
+              "Coal Fuel Stock",
+            ],
+            required: true,
+            section: "Material Selection",
+          },
+          {
+            key: "quantity",
+            label: "Ordered Qty (MT)",
+            type: "number",
+            required: true,
+            section: "Material Selection",
+          },
+          {
+            key: "unitPrice",
+            label: "Unit Price",
+            type: "number",
+            required: true,
+            section: "Material Selection",
+          },
+          {
+            key: "totalAmount",
+            label: "Total Taxable Amt",
+            type: "number",
+            required: true,
+            section: "Material Selection",
+          },
+          {
+            key: "deliveryDate",
+            label: "Expected Delivery Date",
+            type: "date",
+            required: true,
+            section: "Material Selection",
+          },
+
+          {
+            key: "status",
+            label: "Status",
+            type: "select",
+            options: ["Draft", "Approved", "Sent to Supplier", "Closed"],
+            required: true,
+            section: "Execution Details",
+          },
         ],
         defaultData: [
           {
@@ -675,7 +1520,7 @@ export const modulesData: ModuleConfig[] = [
               unitPrice: 820,
               totalAmount: 820000,
               deliveryDate: "2026-08-20",
-              status: "Approved"
+              status: "Approved",
             },
           },
         ],
@@ -684,7 +1529,7 @@ export const modulesData: ModuleConfig[] = [
         key: "inboundreceiving",
         label: "Inbound Receiving Workflow",
         fields: [],
-        defaultData: []
+        defaultData: [],
       },
     ],
   },
@@ -697,12 +1542,55 @@ export const modulesData: ModuleConfig[] = [
         key: "products",
         label: "Products",
         fields: [
-          { key: "productName", label: "Product Name", type: "text", required: true, section: "Product Info" },
-          { key: "productCode", label: "Product Code", type: "text", required: true, section: "Product Info" },
-          { key: "productType", label: "Product Type", type: "select", options: ["Raw Material", "Chemical / Additive", "Finished Product"], required: true, section: "Product Info" },
-          { key: "storageLocation", label: "Storage Location", type: "select", options: ["Tank", "Warehouse"], required: true, section: "Inventory Status" },
-          { key: "currentStock", label: "Current Stock", type: "number", required: true, section: "Inventory Status" },
-          { key: "uom", label: "Unit of Measure (UOM)", type: "select", options: ["MT", "Units"], required: true, section: "Inventory Status" }
+          {
+            key: "productName",
+            label: "Product Name",
+            type: "text",
+            required: true,
+            section: "Product Info",
+          },
+          {
+            key: "productCode",
+            label: "Product Code",
+            type: "text",
+            required: true,
+            section: "Product Info",
+          },
+          {
+            key: "productType",
+            label: "Product Type",
+            type: "select",
+            options: [
+              "Raw Material",
+              "Chemical / Additive",
+              "Finished Product",
+            ],
+            required: true,
+            section: "Product Info",
+          },
+          {
+            key: "storageLocation",
+            label: "Storage Location",
+            type: "select",
+            options: ["Tank", "Warehouse"],
+            required: true,
+            section: "Inventory Status",
+          },
+          {
+            key: "currentStock",
+            label: "Current Stock",
+            type: "number",
+            required: true,
+            section: "Inventory Status",
+          },
+          {
+            key: "uom",
+            label: "Unit of Measure (UOM)",
+            type: "select",
+            options: ["MT", "Units"],
+            required: true,
+            section: "Inventory Status",
+          },
         ],
         defaultData: [
           {
@@ -721,8 +1609,8 @@ export const modulesData: ModuleConfig[] = [
               productType: "Raw Material",
               storageLocation: "Tank",
               currentStock: 1200,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-2",
@@ -740,8 +1628,8 @@ export const modulesData: ModuleConfig[] = [
               productType: "Chemical / Additive",
               storageLocation: "Warehouse",
               currentStock: 50,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-3",
@@ -759,8 +1647,8 @@ export const modulesData: ModuleConfig[] = [
               productType: "Chemical / Additive",
               storageLocation: "Warehouse",
               currentStock: 30,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-4",
@@ -778,8 +1666,8 @@ export const modulesData: ModuleConfig[] = [
               productType: "Chemical / Additive",
               storageLocation: "Warehouse",
               currentStock: 100,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-5",
@@ -797,8 +1685,8 @@ export const modulesData: ModuleConfig[] = [
               productType: "Chemical / Additive",
               storageLocation: "Warehouse",
               currentStock: 25,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-6",
@@ -816,8 +1704,8 @@ export const modulesData: ModuleConfig[] = [
               productType: "Chemical / Additive",
               storageLocation: "Warehouse",
               currentStock: 40,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-7",
@@ -835,8 +1723,8 @@ export const modulesData: ModuleConfig[] = [
               productType: "Chemical / Additive",
               storageLocation: "Warehouse",
               currentStock: 200,
-              uom: "Units"
-            }
+              uom: "Units",
+            },
           },
           {
             id: "prod-8",
@@ -854,8 +1742,8 @@ export const modulesData: ModuleConfig[] = [
               productType: "Chemical / Additive",
               storageLocation: "Warehouse",
               currentStock: 15,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-9",
@@ -872,8 +1760,8 @@ export const modulesData: ModuleConfig[] = [
               productCode: "PROD-RPO-09",
               productType: "Finished Product",
               currentStock: 3850,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-10",
@@ -890,8 +1778,8 @@ export const modulesData: ModuleConfig[] = [
               productCode: "PROD-RPS-10",
               productType: "Finished Product",
               currentStock: 1500,
-              uom: "MT"
-            }
+              uom: "MT",
+            },
           },
           {
             id: "prod-11",
@@ -908,10 +1796,10 @@ export const modulesData: ModuleConfig[] = [
               productCode: "PROD-PFAD-11",
               productType: "Finished Product",
               currentStock: 300,
-              uom: "MT"
-            }
-          }
-        ]
+              uom: "MT",
+            },
+          },
+        ],
       },
       {
         key: "tank",
@@ -1146,12 +2034,42 @@ export const modulesData: ModuleConfig[] = [
               finishedProduct: "RBD Palm Olein (CP10)",
               version: "1.0",
               steps: [
-                { name: "Degumming", inputProduct: "Crude Palm Oil (CPO)", inputQty: 1000, outputProduct: "Degummed Palm Oil", outputQty: 990 },
-                { name: "Neutralization", inputProduct: "Degummed Palm Oil", inputQty: 990, outputProduct: "Neutralized Palm Oil", outputQty: 975 },
-                { name: "Bleaching", inputProduct: "Neutralized Palm Oil", inputQty: 975, outputProduct: "Bleached Palm Oil", outputQty: 965 },
-                { name: "Filtration", inputProduct: "Bleached Palm Oil", inputQty: 965, outputProduct: "Filtered Palm Oil", outputQty: 960 },
-                { name: "Deodorization", inputProduct: "Filtered Palm Oil", inputQty: 960, outputProduct: "RBD Palm Olein (CP10)", outputQty: 950 }
-              ]
+                {
+                  name: "Degumming",
+                  inputProduct: "Crude Palm Oil (CPO)",
+                  inputQty: 1000,
+                  outputProduct: "Degummed Palm Oil",
+                  outputQty: 990,
+                },
+                {
+                  name: "Neutralization",
+                  inputProduct: "Degummed Palm Oil",
+                  inputQty: 990,
+                  outputProduct: "Neutralized Palm Oil",
+                  outputQty: 975,
+                },
+                {
+                  name: "Bleaching",
+                  inputProduct: "Neutralized Palm Oil",
+                  inputQty: 975,
+                  outputProduct: "Bleached Palm Oil",
+                  outputQty: 965,
+                },
+                {
+                  name: "Filtration",
+                  inputProduct: "Bleached Palm Oil",
+                  inputQty: 965,
+                  outputProduct: "Filtered Palm Oil",
+                  outputQty: 960,
+                },
+                {
+                  name: "Deodorization",
+                  inputProduct: "Filtered Palm Oil",
+                  inputQty: 960,
+                  outputProduct: "RBD Palm Olein (CP10)",
+                  outputQty: 950,
+                },
+              ],
             },
           },
         ],
@@ -1287,12 +2205,48 @@ export const modulesData: ModuleConfig[] = [
         key: "utilitylogs",
         label: "Utility Usage Logs",
         fields: [
-          { key: "logNo", label: "Log Number", type: "text", required: true, section: "Log ID" },
-          { key: "logDate", label: "Date of Log", type: "date", required: true, section: "Telemetry Data" },
-          { key: "coalStock", label: "Coal Fuel Stock (MT)", type: "number", required: true, section: "Fuel Inventory" },
-          { key: "waterConsumption", label: "Boiler Feedwater (kL)", type: "number", required: true, section: "Utility Inputs" },
-          { key: "steamGenerated", label: "Process Steam Yield (MT)", type: "number", required: true, section: "Utility Yields" },
-          { key: "powerConsumption", label: "Grid Electrical Draw (kWh)", type: "number", required: true, section: "Utility Inputs" }
+          {
+            key: "logNo",
+            label: "Log Number",
+            type: "text",
+            required: true,
+            section: "Log ID",
+          },
+          {
+            key: "logDate",
+            label: "Date of Log",
+            type: "date",
+            required: true,
+            section: "Telemetry Data",
+          },
+          {
+            key: "coalStock",
+            label: "Coal Fuel Stock (MT)",
+            type: "number",
+            required: true,
+            section: "Fuel Inventory",
+          },
+          {
+            key: "waterConsumption",
+            label: "Boiler Feedwater (kL)",
+            type: "number",
+            required: true,
+            section: "Utility Inputs",
+          },
+          {
+            key: "steamGenerated",
+            label: "Process Steam Yield (MT)",
+            type: "number",
+            required: true,
+            section: "Utility Yields",
+          },
+          {
+            key: "powerConsumption",
+            label: "Grid Electrical Draw (kWh)",
+            type: "number",
+            required: true,
+            section: "Utility Inputs",
+          },
         ],
         defaultData: [
           {
@@ -1311,8 +2265,8 @@ export const modulesData: ModuleConfig[] = [
               coalStock: 450,
               waterConsumption: 120,
               steamGenerated: 95,
-              powerConsumption: 4800
-            }
+              powerConsumption: 4800,
+            },
           },
           {
             id: "utl-log-2",
@@ -1330,11 +2284,11 @@ export const modulesData: ModuleConfig[] = [
               coalStock: 480,
               waterConsumption: 115,
               steamGenerated: 92,
-              powerConsumption: 4600
-            }
-          }
-        ]
-      }
+              powerConsumption: 4600,
+            },
+          },
+        ],
+      },
     ],
   },
   {
@@ -1346,13 +2300,63 @@ export const modulesData: ModuleConfig[] = [
         key: "asset",
         label: "Assets",
         fields: [
-          { key: "assetName", label: "Asset Name", type: "text", required: true, section: "Asset Profile" },
-          { key: "assetCode", label: "Asset Code", type: "text", required: true, section: "Asset Profile" },
-          { key: "category", label: "Category", type: "select", options: ["Refining Unit", "Storage Tank", "Utility Pump", "Piping Node", "Packaging Line"], required: true, section: "Asset Profile" },
-          { key: "preventiveInterval", label: "Preventive Interval (Days)", type: "number", required: true, section: "Maintenance Setup" },
-          { key: "lastMaintenanceDate", label: "Last Maintenance Date", type: "date", required: true, section: "Maintenance Setup" },
-          { key: "nextMaintenanceDate", label: "Next Maintenance Date", type: "date", required: true, section: "Maintenance Setup" },
-          { key: "status", label: "Operational Status", type: "select", options: ["Operational", "Under Maintenance", "Broken"], required: true, section: "Maintenance Setup" }
+          {
+            key: "assetName",
+            label: "Asset Name",
+            type: "text",
+            required: true,
+            section: "Asset Profile",
+          },
+          {
+            key: "assetCode",
+            label: "Asset Code",
+            type: "text",
+            required: true,
+            section: "Asset Profile",
+          },
+          {
+            key: "category",
+            label: "Category",
+            type: "select",
+            options: [
+              "Refining Unit",
+              "Storage Tank",
+              "Utility Pump",
+              "Piping Node",
+              "Packaging Line",
+            ],
+            required: true,
+            section: "Asset Profile",
+          },
+          {
+            key: "preventiveInterval",
+            label: "Preventive Interval (Days)",
+            type: "number",
+            required: true,
+            section: "Maintenance Setup",
+          },
+          {
+            key: "lastMaintenanceDate",
+            label: "Last Maintenance Date",
+            type: "date",
+            required: true,
+            section: "Maintenance Setup",
+          },
+          {
+            key: "nextMaintenanceDate",
+            label: "Next Maintenance Date",
+            type: "date",
+            required: true,
+            section: "Maintenance Setup",
+          },
+          {
+            key: "status",
+            label: "Operational Status",
+            type: "select",
+            options: ["Operational", "Under Maintenance", "Broken"],
+            required: true,
+            section: "Maintenance Setup",
+          },
         ],
         defaultData: [
           {
@@ -1372,8 +2376,8 @@ export const modulesData: ModuleConfig[] = [
               preventiveInterval: 30,
               lastMaintenanceDate: "2026-08-01",
               nextMaintenanceDate: "2026-08-31",
-              status: "Operational"
-            }
+              status: "Operational",
+            },
           },
           {
             id: "asset-2",
@@ -1392,8 +2396,8 @@ export const modulesData: ModuleConfig[] = [
               preventiveInterval: 60,
               lastMaintenanceDate: "2026-07-15",
               nextMaintenanceDate: "2026-09-13",
-              status: "Operational"
-            }
+              status: "Operational",
+            },
           },
           {
             id: "asset-3",
@@ -1412,8 +2416,8 @@ export const modulesData: ModuleConfig[] = [
               preventiveInterval: 15,
               lastMaintenanceDate: "2026-08-10",
               nextMaintenanceDate: "2026-08-25",
-              status: "Operational"
-            }
+              status: "Operational",
+            },
           },
           {
             id: "asset-4",
@@ -1432,24 +2436,75 @@ export const modulesData: ModuleConfig[] = [
               preventiveInterval: 180,
               lastMaintenanceDate: "2026-06-01",
               nextMaintenanceDate: "2026-11-28",
-              status: "Operational"
-            }
-          }
-        ]
-      }
+              status: "Operational",
+            },
+          },
+        ],
+      },
     ],
     transactions: [
       {
         key: "workorder",
         label: "Work Orders",
         fields: [
-          { key: "workOrderNo", label: "Work Order Number", type: "text", required: true, section: "WO Info" },
-          { key: "assetRef", label: "Asset Reference Code", type: "text", required: true, section: "WO Info" },
-          { key: "maintType", label: "Maintenance Type", type: "select", options: ["Preventive", "Reactive"], required: true, section: "Schedule Details" },
-          { key: "priority", label: "Priority", type: "select", options: ["Low", "Medium", "High", "Emergency"], required: true, section: "Schedule Details" },
-          { key: "description", label: "Work Description", type: "text", required: true, section: "Schedule Details" },
-          { key: "scheduledDate", label: "Scheduled Work Date", type: "date", required: true, section: "Schedule Details" },
-          { key: "status", label: "Work Status", type: "select", options: ["Draft", "Assigned", "In Progress", "Completed", "Cancelled"], required: true, section: "Progress Status" }
+          {
+            key: "workOrderNo",
+            label: "Work Order Number",
+            type: "text",
+            required: true,
+            section: "WO Info",
+          },
+          {
+            key: "assetRef",
+            label: "Asset Reference Code",
+            type: "text",
+            required: true,
+            section: "WO Info",
+          },
+          {
+            key: "maintType",
+            label: "Maintenance Type",
+            type: "select",
+            options: ["Preventive", "Reactive"],
+            required: true,
+            section: "Schedule Details",
+          },
+          {
+            key: "priority",
+            label: "Priority",
+            type: "select",
+            options: ["Low", "Medium", "High", "Emergency"],
+            required: true,
+            section: "Schedule Details",
+          },
+          {
+            key: "description",
+            label: "Work Description",
+            type: "text",
+            required: true,
+            section: "Schedule Details",
+          },
+          {
+            key: "scheduledDate",
+            label: "Scheduled Work Date",
+            type: "date",
+            required: true,
+            section: "Schedule Details",
+          },
+          {
+            key: "status",
+            label: "Work Status",
+            type: "select",
+            options: [
+              "Draft",
+              "Assigned",
+              "In Progress",
+              "Completed",
+              "Cancelled",
+            ],
+            required: true,
+            section: "Progress Status",
+          },
         ],
         defaultData: [
           {
@@ -1468,10 +2523,11 @@ export const modulesData: ModuleConfig[] = [
               assetRef: "ASSET-DEG-01",
               maintType: "Preventive",
               priority: "Medium",
-              description: "Monthly preventive servicing and acid dosing pump check",
+              description:
+                "Monthly preventive servicing and acid dosing pump check",
               scheduledDate: "2026-08-31",
-              status: "Draft"
-            }
+              status: "Draft",
+            },
           },
           {
             id: "wo-2",
@@ -1491,22 +2547,66 @@ export const modulesData: ModuleConfig[] = [
               priority: "High",
               description: "Fix earth feeder speed controller issue",
               scheduledDate: "2026-08-14",
-              status: "In Progress"
-            }
-          }
-        ]
+              status: "In Progress",
+            },
+          },
+        ],
       },
       {
         key: "maintrequest",
         label: "Maintenance Requests",
         fields: [
-          { key: "requestNo", label: "Request Number", type: "text", required: true, section: "Req Info" },
-          { key: "assetRef", label: "Asset Reference Code", type: "text", required: true, section: "Req Info" },
-          { key: "reportedIssue", label: "Reported Issue Description", type: "text", required: true, section: "Req Info" },
-          { key: "reportedBy", label: "Reported By Name", type: "text", required: true, section: "Audit Details" },
-          { key: "requestDate", label: "Request Date", type: "date", required: true, section: "Audit Details" },
-          { key: "priority", label: "Priority", type: "select", options: ["Low", "Medium", "High", "Emergency"], required: true, section: "Audit Details" },
-          { key: "status", label: "Request Status", type: "select", options: ["New", "Approved", "Work Order Created", "Rejected"], required: true, section: "Request Status" }
+          {
+            key: "requestNo",
+            label: "Request Number",
+            type: "text",
+            required: true,
+            section: "Req Info",
+          },
+          {
+            key: "assetRef",
+            label: "Asset Reference Code",
+            type: "text",
+            required: true,
+            section: "Req Info",
+          },
+          {
+            key: "reportedIssue",
+            label: "Reported Issue Description",
+            type: "text",
+            required: true,
+            section: "Req Info",
+          },
+          {
+            key: "reportedBy",
+            label: "Reported By Name",
+            type: "text",
+            required: true,
+            section: "Audit Details",
+          },
+          {
+            key: "requestDate",
+            label: "Request Date",
+            type: "date",
+            required: true,
+            section: "Audit Details",
+          },
+          {
+            key: "priority",
+            label: "Priority",
+            type: "select",
+            options: ["Low", "Medium", "High", "Emergency"],
+            required: true,
+            section: "Audit Details",
+          },
+          {
+            key: "status",
+            label: "Request Status",
+            type: "select",
+            options: ["New", "Approved", "Work Order Created", "Rejected"],
+            required: true,
+            section: "Request Status",
+          },
         ],
         defaultData: [
           {
@@ -1523,16 +2623,17 @@ export const modulesData: ModuleConfig[] = [
             details: {
               requestNo: "REQ-2026-0101",
               assetRef: "ASSET-BL-02",
-              reportedIssue: "Earth feeder speed controller showing unstable speed",
+              reportedIssue:
+                "Earth feeder speed controller showing unstable speed",
               reportedBy: "Operator Rajan",
               requestDate: "2026-08-14",
               priority: "High",
-              status: "Approved"
-            }
-          }
-        ]
-      }
-    ]
+              status: "Approved",
+            },
+          },
+        ],
+      },
+    ],
   },
 
   {
@@ -1544,10 +2645,34 @@ export const modulesData: ModuleConfig[] = [
         key: "paymentterm",
         label: "Payment Terms",
         fields: [
-          { key: "termName", label: "Term Name", type: "text", required: true, section: "Term Rules" },
-          { key: "advancePct", label: "Advance Payment %", type: "number", required: true, section: "Term Rules" },
-          { key: "dispatchPct", label: "On Dispatch %", type: "number", required: true, section: "Term Rules" },
-          { key: "deliveryPct", label: "On Delivery %", type: "number", required: true, section: "Term Rules" }
+          {
+            key: "termName",
+            label: "Term Name",
+            type: "text",
+            required: true,
+            section: "Term Rules",
+          },
+          {
+            key: "advancePct",
+            label: "Advance Payment %",
+            type: "number",
+            required: true,
+            section: "Term Rules",
+          },
+          {
+            key: "dispatchPct",
+            label: "On Dispatch %",
+            type: "number",
+            required: true,
+            section: "Term Rules",
+          },
+          {
+            key: "deliveryPct",
+            label: "On Delivery %",
+            type: "number",
+            required: true,
+            section: "Term Rules",
+          },
         ],
         defaultData: [
           {
@@ -1564,8 +2689,8 @@ export const modulesData: ModuleConfig[] = [
               termName: "Standard 25-50-25 Scheme",
               advancePct: 25,
               dispatchPct: 50,
-              deliveryPct: 25
-            }
+              deliveryPct: 25,
+            },
           },
           {
             id: "term-2",
@@ -1581,23 +2706,67 @@ export const modulesData: ModuleConfig[] = [
               termName: "100% Advance Payment",
               advancePct: 100,
               dispatchPct: 0,
-              deliveryPct: 0
-            }
-          }
-        ]
-      }
+              deliveryPct: 0,
+            },
+          },
+        ],
+      },
     ],
     transactions: [
       {
         key: "paymentreceived",
         label: "Payments Received",
         fields: [
-          { key: "paymentNo", label: "Receipt Voucher No", type: "text", required: true, section: "Voucher Details" },
-          { key: "salesOrderRef", label: "Linked Sales Order", type: "select", options: ["SO-2026-0091", "SO-2026-0092"], required: true, section: "Voucher Details" },
-          { key: "amount", label: "Amount Received (₹)", type: "number", required: true, section: "Transaction Amount" },
-          { key: "paymentDate", label: "Date Received", type: "date", required: true, section: "Transaction Amount" },
-          { key: "paymentStage", label: "Payment Milestone Stage", type: "select", options: ["Advance 25%", "On Dispatch 50%", "On Delivery 25%", "100% Advance"], required: true, section: "Transaction Amount" },
-          { key: "paymentMethod", label: "Payment Instrument Type", type: "select", options: ["Bank Wire / RTGS", "Letter of Credit", "UPI Transfer"], required: true, section: "Audit Tracking" }
+          {
+            key: "paymentNo",
+            label: "Receipt Voucher No",
+            type: "text",
+            required: true,
+            section: "Voucher Details",
+          },
+          {
+            key: "salesOrderRef",
+            label: "Linked Sales Order",
+            type: "select",
+            options: ["SO-2026-0091", "SO-2026-0092"],
+            required: true,
+            section: "Voucher Details",
+          },
+          {
+            key: "amount",
+            label: "Amount Received (₹)",
+            type: "number",
+            required: true,
+            section: "Transaction Amount",
+          },
+          {
+            key: "paymentDate",
+            label: "Date Received",
+            type: "date",
+            required: true,
+            section: "Transaction Amount",
+          },
+          {
+            key: "paymentStage",
+            label: "Payment Milestone Stage",
+            type: "select",
+            options: [
+              "Advance 25%",
+              "On Dispatch 50%",
+              "On Delivery 25%",
+              "100% Advance",
+            ],
+            required: true,
+            section: "Transaction Amount",
+          },
+          {
+            key: "paymentMethod",
+            label: "Payment Instrument Type",
+            type: "select",
+            options: ["Bank Wire / RTGS", "Letter of Credit", "UPI Transfer"],
+            required: true,
+            section: "Audit Tracking",
+          },
         ],
         defaultData: [
           {
@@ -1616,21 +2785,69 @@ export const modulesData: ModuleConfig[] = [
               amount: 7500000,
               paymentDate: "2026-08-12",
               paymentStage: "Advance 25%",
-              paymentMethod: "Bank Wire / RTGS"
-            }
-          }
-        ]
+              paymentMethod: "Bank Wire / RTGS",
+            },
+          },
+        ],
       },
       {
         key: "paymentmade",
         label: "Payments Made",
         fields: [
-          { key: "paymentNo", label: "Disbursement Voucher No", type: "text", required: true, section: "Voucher Details" },
-          { key: "purchaseOrderRef", label: "Linked Purchase Order", type: "select", options: ["PO-2026-551"], required: true, section: "Voucher Details" },
-          { key: "amount", label: "Amount Paid (₹)", type: "number", required: true, section: "Transaction Amount" },
-          { key: "paymentDate", label: "Date Paid", type: "date", required: true, section: "Transaction Amount" },
-          { key: "paymentStage", label: "Payment Milestone Stage", type: "select", options: ["Advance 25%", "On Dispatch 50%", "On Delivery 25%", "100% Advance"], required: true, section: "Transaction Amount" },
-          { key: "paymentMethod", label: "Payment Instrument Type", type: "select", options: ["NEFT / RTGS Transfer", "Corporate Cheque", "Letter of Credit"], required: true, section: "Audit Tracking" }
+          {
+            key: "paymentNo",
+            label: "Disbursement Voucher No",
+            type: "text",
+            required: true,
+            section: "Voucher Details",
+          },
+          {
+            key: "purchaseOrderRef",
+            label: "Linked Purchase Order",
+            type: "select",
+            options: ["PO-2026-551"],
+            required: true,
+            section: "Voucher Details",
+          },
+          {
+            key: "amount",
+            label: "Amount Paid (₹)",
+            type: "number",
+            required: true,
+            section: "Transaction Amount",
+          },
+          {
+            key: "paymentDate",
+            label: "Date Paid",
+            type: "date",
+            required: true,
+            section: "Transaction Amount",
+          },
+          {
+            key: "paymentStage",
+            label: "Payment Milestone Stage",
+            type: "select",
+            options: [
+              "Advance 25%",
+              "On Dispatch 50%",
+              "On Delivery 25%",
+              "100% Advance",
+            ],
+            required: true,
+            section: "Transaction Amount",
+          },
+          {
+            key: "paymentMethod",
+            label: "Payment Instrument Type",
+            type: "select",
+            options: [
+              "NEFT / RTGS Transfer",
+              "Corporate Cheque",
+              "Letter of Credit",
+            ],
+            required: true,
+            section: "Audit Tracking",
+          },
         ],
         defaultData: [
           {
@@ -1649,12 +2866,317 @@ export const modulesData: ModuleConfig[] = [
               amount: 1200000,
               paymentDate: "2026-08-13",
               paymentStage: "Advance 25%",
-              paymentMethod: "NEFT / RTGS Transfer"
+              paymentMethod: "NEFT / RTGS Transfer",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    key: "masters",
+    label: "Masters",
+    masters: [
+      {
+        key: "company-config",
+        label: "Company Configuration",
+        fields: [
+          { key: "company", label: "Company", type: "select", options: ["ROCKEYE REFINERY OPERATIONS"], required: true, section: "Config Info" },
+          { key: "type", label: "Type", type: "select", options: ["Company", "System", "Finance", "UI"], required: true, section: "Config Info" },
+          { key: "configKey", label: "Key", type: "text", required: true, section: "Config Info" },
+          { key: "configLabel", label: "Label", type: "text", required: true, section: "Config Info" },
+          { key: "value", label: "Value", type: "text", required: true, section: "Config Details" },
+          { key: "unit", label: "Unit", type: "text", required: false, section: "Config Details" },
+          { key: "note", label: "Note", type: "text", required: false, section: "Config Details" },
+        ],
+        defaultData: [
+          {
+            id: "config-1",
+            code: "HOM-CFG-001",
+            name: "COMPANY_NAME",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              company: "ROCKEYE REFINERY OPERATIONS",
+              type: "Company",
+              configKey: "COMPANY_NAME",
+              configLabel: "Company Name",
+              value: "ROCKEYE REFINERY OPERATIONS",
+              unit: "N/A",
+              note: "Primary legal entity name"
+            }
+          },
+          {
+            id: "config-2",
+            code: "HOM-CFG-002",
+            name: "FINANCE_USER_NAME",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              company: "ROCKEYE REFINERY OPERATIONS",
+              type: "Finance",
+              configKey: "FINANCE_USER_NAME",
+              configLabel: "Finance User Name",
+              value: "finance.global@yopmail.com",
+              unit: "N/A",
+              note: "Default contact for accounting"
+            }
+          },
+          {
+            id: "config-3",
+            code: "HOM-CFG-003",
+            name: "TRIP_TIMELINE_SEQUENTION",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              company: "ROCKEYE REFINERY OPERATIONS",
+              type: "System",
+              configKey: "TRIP_TIMELINE_SEQUENTION",
+              configLabel: "App wise time Line Sequention",
+              value: '[{"key":"wetCargo", "timelineSequence": ["TRIP_SCHEDULED", "TRIP_LOADING", "TRIP_OUT_FOR_DELIVERY"]}]',
+              unit: "N/A",
+              note: "Please Follow The Name"
             }
           }
         ]
+      },
+      {
+        key: "currency",
+        label: "Currency Master",
+        fields: [
+          { key: "currencyName", label: "Currency Name", type: "text", required: true, section: "Currency Details" },
+          { key: "currencyCode", label: "Currency Code", type: "text", required: true, section: "Currency Details" },
+          { key: "currencySymbol", label: "Currency Symbol", type: "text", required: true, section: "Currency Details" },
+          { key: "lastSyncedDate", label: "Last Synced Date", type: "date", required: false, section: "Sync Details" },
+          { key: "status", label: "Status", type: "select", options: ["Active", "Inactive"], required: true, section: "Currency Details" },
+        ],
+        defaultData: [
+          {
+            id: "curr-1",
+            code: "HOM-CURR-001",
+            name: "Afghan Afghanis",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              currencyName: "Afghan Afghanis",
+              currencyCode: "AFN",
+              currencySymbol: "؋",
+              lastSyncedDate: "-",
+              status: "Active"
+            }
+          },
+          {
+            id: "curr-2",
+            code: "HOM-CURR-002",
+            name: "Albanian Leke",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              currencyName: "Albanian Leke",
+              currencyCode: "ALL",
+              currencySymbol: "Lek",
+              lastSyncedDate: "-",
+              status: "Active"
+            }
+          }
+        ]
+      },
+      {
+        key: "currency-conversion",
+        label: "Currency Conversion Master",
+        fields: [
+          { key: "currencyName", label: "Currency Name", type: "text", required: true, section: "Conversion Details" },
+          { key: "baseConversionRate", label: "Base Conversion Rate ($)", type: "number", required: true, section: "Conversion Details" },
+          { key: "addedBy", label: "Added By", type: "text", required: true, section: "Audit" },
+          { key: "addedDate", label: "Added Date", type: "text", required: true, section: "Audit" },
+          { key: "updatedBy", label: "Updated By", type: "text", required: true, section: "Audit" },
+          { key: "updatedDate", label: "Updated Date", type: "text", required: true, section: "Audit" },
+        ],
+        defaultData: [
+          {
+            id: "conv-1",
+            code: "HOM-CONV-001",
+            name: "British pound (£)",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              currencyName: "British pound (£)",
+              baseConversionRate: "1.2332405061432",
+              addedBy: "System",
+              addedDate: "03/02/2026 10:06 AM",
+              updatedBy: "System",
+              updatedDate: "08/07/2026 06:35 AM"
+            }
+          },
+          {
+            id: "conv-2",
+            code: "HOM-CONV-002",
+            name: "Europian Euro (€)",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              currencyName: "Europian Euro (€)",
+              baseConversionRate: "1.0667577736943",
+              addedBy: "System",
+              addedDate: "03/02/2026 10:06 AM",
+              updatedBy: "System",
+              updatedDate: "08/07/2026 06:35 AM"
+            }
+          }
+        ]
+      },
+      {
+        key: "ports",
+        label: "Ports",
+        fields: [
+          { key: "portCode", label: "Port Code", type: "text", required: true, section: "Port Info" },
+          { key: "portName", label: "Port Name", type: "text", required: true, section: "Port Info" },
+          { key: "country", label: "Country", type: "text", required: true, section: "Location" },
+          { key: "portType", label: "Port Type", type: "select", options: ["Loading", "Destination", "Both"], required: true, section: "Port Info" },
+        ],
+        defaultData: [
+          {
+            id: "port-1",
+            code: "HOM-PRT-001",
+            name: "Port Klang",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              portCode: "MYPKG",
+              portName: "Port Klang",
+              country: "Malaysia",
+              portType: "Both"
+            }
+          },
+          {
+            id: "port-2",
+            code: "HOM-PRT-002",
+            name: "Port of Singapore",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              portCode: "SGSIN",
+              portName: "Port of Singapore",
+              country: "Singapore",
+              portType: "Both"
+            }
+          }
+        ]
+      },
+      {
+        key: "uom",
+        label: "Unit of Measurement (UOM)",
+        fields: [
+          { key: "uomCode", label: "UOM Code", type: "text", required: true, section: "UOM Details" },
+          { key: "uomName", label: "UOM Name", type: "text", required: true, section: "UOM Details" },
+          { key: "conversionFactor", label: "Conversion Factor (To Base)", type: "number", required: true, section: "UOM Details" },
+        ],
+        defaultData: [
+          {
+            id: "uom-1",
+            code: "HOM-UOM-001",
+            name: "Metric Ton",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              uomCode: "MT",
+              uomName: "Metric Ton",
+              conversionFactor: "1"
+            }
+          },
+          {
+            id: "uom-2",
+            code: "HOM-UOM-002",
+            name: "Kilogram",
+            status: "Active",
+            createdAt: "2026-08-17",
+            createdBy: "System",
+            activities: [],
+            comments: [],
+            attachments: [],
+            details: {
+              uomCode: "KG",
+              uomName: "Kilogram",
+              conversionFactor: "0.001"
+            }
+          }
+        ]
+      },
+      {
+        key: "inspection-template",
+        label: "Inspection Template",
+        fields: [
+          { key: "templateCode", label: "Template Code", type: "text", required: true, section: "Basic Info" },
+          { key: "product", label: "Product", type: "select", options: ["Crude Palm Oil (CPO)", "RBD Palm Olein (CP10)", "Bleaching Earth"], required: true, section: "Basic Info" },
+          { key: "status", label: "Status", type: "select", options: ["Active", "Draft", "Archived"], required: true, section: "Basic Info" },
+        ],
+        defaultData: [
+          {
+            id: "1",
+            code: "HOM-QC-001",
+            name: "CPO Standard Spec",
+            status: "Active",
+            createdAt: "2026-08-12",
+            createdBy: "Arjun Kumar",
+            auditTrail: defaultAuditTrail(),
+            activities: defaultActivities("HOM-QC-001"),
+            comments: defaultComments(),
+            attachments: defaultAttachments(),
+            details: {
+              templateCode: "HOM-QC-001",
+              product: "Crude Palm Oil (CPO)",
+              status: "Active",
+              parameters: [
+                { id: "p1", name: "FFA Max (%)", min: 0, max: 5.0, unit: "%", method: "AOCS Ca 5a-40" },
+                { id: "p2", name: "Moisture & Impurities Max (%)", min: 0, max: 0.25, unit: "%", method: "AOCS Ca 2c-25" },
+                { id: "p3", name: "Iodine Value Min", min: 51, max: 55, unit: "g I2/100g", method: "AOCS Cd 1-25" },
+                { id: "p4", name: "Color Max (Red)", min: 0, max: 5, unit: "Lovibond", method: "AOCS Cc 13e-92" }
+              ]
+            },
+          }
+        ]
       }
-    ]
+    ],
+    transactions: []
   }
 ]
-

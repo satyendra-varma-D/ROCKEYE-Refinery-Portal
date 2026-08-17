@@ -138,7 +138,9 @@ export default function App() {
         salesExecutive: enq.details?.salesExecutive || "Arjun Kumar",
         businessUnit: enq.details?.businessUnit || "Refined Fuels",
         currency: enq.details?.currency || "USD",
-        expiryDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+        expiryDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0],
         priority: enq.details?.priority || "High",
         product: enq.details?.product || "",
         productGrade: enq.details?.productGrade || "",
@@ -246,7 +248,7 @@ export default function App() {
           .flatMap((m) => m.transactions || [])
           .find((t) => t.key === "salesorder")?.fields || [],
       initialData: {
-        salesOrderNo: `SO-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+        salesOrderNo: `HOM-SO-${Math.floor(10000 + Math.random() * 90000)}`,
         salesOrderDate: new Date().toISOString().split("T")[0],
         customer: qtn.details?.customer || "",
         quotationRef: qtn.code,
@@ -258,10 +260,13 @@ export default function App() {
         loadingPort: qtn.details?.loadingPort || "Port Klang (MY)",
         currency: qtn.details?.currency || "USD",
         unitPrice: qtn.details?.unitPrice || 0,
-        totalAmount: (qtn.details?.quantity || 0) * (qtn.details?.unitPrice || 0),
+        totalAmount:
+          (qtn.details?.quantity || 0) * (qtn.details?.unitPrice || 0),
         paymentTerms: qtn.details?.paymentTerms || "LC at Sight",
-        requestedDeliveryDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-        status: "Open"
+        requestedDeliveryDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0],
+        status: "Open",
       },
     })
     setFormMode("create")
@@ -327,17 +332,84 @@ export default function App() {
   const getDynamicEntityConfig = () => {
     if (activeEntityKey === "deliveryplanning") {
       const dpFields = [
-        { key: "vendor", label: "Vendor Name", type: "select", options: ["Seri Maju Trading Sdn. Bhd.", "Sime Darby Oils Trading"], required: true, section: "Delivery Planning Info" },
-        { key: "warehouse", label: "Warehouse", type: "select", options: ["Bulk Storage Tank Farm A", "Bulk Storage Tank Farm B", "Dry Warehouse C"], required: true, section: "Delivery Planning Info" },
-        { key: "poRef", label: "PO Reference Code", type: "text", required: true, section: "PO Selection" },
-        { key: "driverName", label: "Driver Name", type: "text", required: true, section: "Driver Details" },
-        { key: "driverPhone", label: "Driver Contact number", type: "text", required: true, section: "Driver Details" },
-        { key: "vehicleNumber", label: "Vehicle Number", type: "text", required: true, section: "Driver Details" },
-        { key: "expectedDeliveryDate", label: "Expected Delivery Date", type: "date", required: true, section: "Driver Details" },
-        { key: "remarks", label: "Remarks", type: "text", required: false, section: "Other Details" },
-        { key: "notes", label: "Notes", type: "text", required: false, section: "Other Details" },
-        { key: "status", label: "Status", type: "select", options: ["Scheduled", "In-Transit", "Arrived", "Cancelled"], required: true, section: "Other Details" }
-      ];
+        {
+          key: "vendor",
+          label: "Vendor Name",
+          type: "select",
+          options: ["Seri Maju Trading Sdn. Bhd.", "Sime Darby Oils Trading"],
+          required: true,
+          section: "Delivery Planning Info",
+        },
+        {
+          key: "warehouse",
+          label: "Warehouse",
+          type: "select",
+          options: [
+            "Bulk Storage Tank Farm A",
+            "Bulk Storage Tank Farm B",
+            "Dry Warehouse C",
+          ],
+          required: true,
+          section: "Delivery Planning Info",
+        },
+        {
+          key: "poRef",
+          label: "PO Reference Code",
+          type: "text",
+          required: true,
+          section: "PO Selection",
+        },
+        {
+          key: "driverName",
+          label: "Driver Name",
+          type: "text",
+          required: true,
+          section: "Driver Details",
+        },
+        {
+          key: "driverPhone",
+          label: "Driver Contact number",
+          type: "text",
+          required: true,
+          section: "Driver Details",
+        },
+        {
+          key: "vehicleNumber",
+          label: "Vehicle Number",
+          type: "text",
+          required: true,
+          section: "Driver Details",
+        },
+        {
+          key: "expectedDeliveryDate",
+          label: "Expected Delivery Date",
+          type: "date",
+          required: true,
+          section: "Driver Details",
+        },
+        {
+          key: "remarks",
+          label: "Remarks",
+          type: "text",
+          required: false,
+          section: "Other Details",
+        },
+        {
+          key: "notes",
+          label: "Notes",
+          type: "text",
+          required: false,
+          section: "Other Details",
+        },
+        {
+          key: "status",
+          label: "Status",
+          type: "select",
+          options: ["Scheduled", "In-Transit", "Arrived", "Cancelled"],
+          required: true,
+          section: "Other Details",
+        },
+      ]
       const dpDefaultData = [
         {
           id: "dp-1",
@@ -360,11 +432,16 @@ export default function App() {
             expectedDeliveryDate: "2026-08-20",
             remarks: "Deliver CPO by tank truck.",
             notes: "",
-            status: "Scheduled"
-          }
-        }
-      ];
-      return { key: activeEntityKey, label: "Delivery Planning", fields: dpFields, defaultData: dpDefaultData };
+            status: "Scheduled",
+          },
+        },
+      ]
+      return {
+        key: activeEntityKey,
+        label: "Delivery Planning",
+        fields: dpFields,
+        defaultData: dpDefaultData,
+      }
     }
 
     if (activeEntityCategory === "masters" && activeMaster) return activeMaster
@@ -506,34 +583,87 @@ export default function App() {
     activeEntityKey === "supplier"
       ? [
           ...baseEntityFields,
-          { key: "performanceTag", label: "Performance", type: "text" as const, section: "Performance" },
-          { key: "ordersGiven", label: "Orders Given", type: "number" as const, section: "Performance" },
-          { key: "ordersReceived", label: "Orders Received", type: "number" as const, section: "Performance" },
-          { key: "onTimeDeliveries", label: "On-Time Deliveries", type: "number" as const, section: "Performance" },
+          {
+            key: "performanceTag",
+            label: "Performance",
+            type: "text" as const,
+            section: "Performance",
+          },
+          {
+            key: "ordersGiven",
+            label: "Orders Given",
+            type: "number" as const,
+            section: "Performance",
+          },
+          {
+            key: "ordersReceived",
+            label: "Orders Received",
+            type: "number" as const,
+            section: "Performance",
+          },
+          {
+            key: "onTimeDeliveries",
+            label: "On-Time Deliveries",
+            type: "number" as const,
+            section: "Performance",
+          },
         ]
       : baseEntityFields
   const activeEntityData = activeEntityConfig.defaultData || []
   const activeEntityLabel = activeEntityConfig.label || "Record"
 
   // Initialize columns state whenever entity type changes
-    useEffect(() => {
-      if (activeEntityConfig) {
-        if (activeEntityKey === "customer") {
-          setActiveColumns(["name", "companyCode", "customerType", "country", "status"])
-        } else if (activeEntityKey === "supplier") {
-          setActiveColumns(["name", "shortName", "typeOfBusiness", "country", "email", "mobileNo", "performanceTag", "ordersGiven", "ordersReceived", "onTimeDeliveries"])
-        } else if (activeEntityKey === "po") {
-          setActiveColumns(["poNo", "supplier", "product", "quantity", "unitPrice", "totalAmount", "deliveryDate"])
-        } else if (activeEntityKey === "deliveryplanning") {
-          setActiveColumns(["vendor", "warehouse", "poRef", "driverName", "vehicleNumber", "expectedDeliveryDate", "status"])
-        } else {
-          setActiveColumns(activeEntityConfig.fields.map((c) => c.key))
-        }
+  useEffect(() => {
+    if (activeEntityConfig) {
+      if (activeEntityKey === "customer") {
+        setActiveColumns([
+          "name",
+          "companyCode",
+          "customerType",
+          "country",
+          "status",
+        ])
+      } else if (activeEntityKey === "supplier") {
+        setActiveColumns([
+          "name",
+          "shortName",
+          "typeOfBusiness",
+          "country",
+          "email",
+          "mobileNo",
+          "performanceTag",
+          "ordersGiven",
+          "ordersReceived",
+          "onTimeDeliveries",
+        ])
+      } else if (activeEntityKey === "po") {
+        setActiveColumns([
+          "poNo",
+          "supplier",
+          "product",
+          "quantity",
+          "unitPrice",
+          "totalAmount",
+          "deliveryDate",
+        ])
+      } else if (activeEntityKey === "deliveryplanning") {
+        setActiveColumns([
+          "vendor",
+          "warehouse",
+          "poRef",
+          "driverName",
+          "vehicleNumber",
+          "expectedDeliveryDate",
+          "status",
+        ])
+      } else {
+        setActiveColumns(activeEntityConfig.fields.map((c) => c.key))
       }
-      setSearch("")
-      setSelectedStatusFilter("")
-      setSelectedIds([])
-    }, [activeEntityKey, activeEntityCategory])
+    }
+    setSearch("")
+    setSelectedStatusFilter("")
+    setSelectedIds([])
+  }, [activeEntityKey, activeEntityCategory])
 
   const toggleModuleExpand = (key: string) => {
     setExpandedModules((prev) => ({ ...prev, [key]: !prev[key] }))
@@ -558,19 +688,26 @@ export default function App() {
   // CRUD handlers
   const handleFormSubmit = (fieldsData: any) => {
     if (customFormOverride) {
-      const targetKey = customFormOverride.activeKey // 'quotation'
+      const targetKey = customFormOverride.activeKey // 'quotation' or 'salesorder'
+      const prefix = targetKey === "salesorder" ? "SO" : "QTN"
+      const refField =
+        targetKey === "salesorder" ? "quotationRef" : "enquiryRef"
+      const refValue = customFormOverride.initialData[refField]
+
       const newRecord = {
         id: Math.random().toString(),
-        code: `QTN-2026-${Math.floor(1000 + Math.random() * 9000)}`,
+        code: `HOM-${prefix}-${Math.floor(10000 + Math.random() * 90000)}`,
         date: new Date().toISOString().split("T")[0],
-        status: "Active",
+        status: targetKey === "salesorder" ? "Open" : "Active",
         createdAt: new Date().toISOString().split("T")[0],
         createdBy: "Arjun Kumar",
         auditTrail: [
           {
             timestamp: "Just now",
             user: "Arjun Kumar",
-            action: `Created from Enquiry ${customFormOverride.initialData.enquiryRef}`,
+            action: `Created from ${
+              targetKey === "salesorder" ? "Quotation" : "Enquiry"
+            } ${refValue}`,
           },
         ],
         activities: [
@@ -578,7 +715,11 @@ export default function App() {
             id: "1",
             timestamp: "Just now",
             user: "Arjun Kumar",
-            description: `Generated quote from enquiry ${customFormOverride.initialData.enquiryRef}`,
+            description: `Generated ${
+              targetKey === "salesorder" ? "sales order" : "quote"
+            } from ${
+              targetKey === "salesorder" ? "quotation" : "enquiry"
+            } ${refValue}`,
             type: "info",
           },
         ],
@@ -596,11 +737,11 @@ export default function App() {
               if (trx.key === targetKey) {
                 return { ...trx, defaultData: [newRecord, ...trx.defaultData] }
               }
-              if (trx.key === "enquiry") {
+              if (targetKey === "quotation" && trx.key === "enquiry") {
                 return {
                   ...trx,
                   defaultData: trx.defaultData.map((d) =>
-                    d.code === customFormOverride.initialData.enquiryRef
+                    d.code === refValue
                       ? {
                           ...d,
                           status: "Approved",
@@ -619,7 +760,11 @@ export default function App() {
       setIsFormOpen(false)
       setCustomFormOverride(null)
       setViewingEntity(null)
-      alert(`Quotation ${newRecord.code} generated successfully!`)
+      alert(
+        `${
+          targetKey === "salesorder" ? "Sales Order" : "Quotation"
+        } ${newRecord.code} generated successfully!`,
+      )
       return
     }
 
@@ -644,7 +789,7 @@ export default function App() {
             } else {
               const newRecord: MasterEntity = {
                 id: Math.random().toString(),
-                code: `${mst.key.toUpperCase()}-${Math.floor(1000 + Math.random() * 9000)}`,
+                code: `HOM-${mst.key.toUpperCase()}-${Math.floor(10000 + Math.random() * 90000)}`,
                 name:
                   fieldsData.name ||
                   fieldsData[Object.keys(fieldsData)[0]] ||
@@ -692,7 +837,7 @@ export default function App() {
             } else {
               const newRecord: TransactionEntity = {
                 id: Math.random().toString(),
-                code: `${trx.key.toUpperCase()}-${Math.floor(1000 + Math.random() * 9000)}`,
+                code: `HOM-${trx.key.toUpperCase()}-${Math.floor(10000 + Math.random() * 90000)}`,
                 date: new Date().toISOString().split("T")[0],
                 status: "Awaiting Approvals",
                 workflowStep: "Initial Review",
@@ -828,7 +973,11 @@ export default function App() {
       >
         {/* Logo brand heading */}
         <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-200 bg-white select-none">
-          <img src="/assets/palm-logo.png" alt="ROCKEYE" className="w-8 h-8 object-contain flex-shrink-0" />
+          <img
+            src="/assets/palm-logo.png"
+            alt="ROCKEYE"
+            className="w-8 h-8 object-contain flex-shrink-0"
+          />
           {!collapsed && (
             <div className="flex items-center gap-2">
               <span className="text-sm font-extrabold text-slate-800 tracking-tight">
@@ -975,6 +1124,38 @@ export default function App() {
                               category: "transactions",
                             },
                           ],
+                          masters: [
+                            {
+                              key: "company-config",
+                              label: "Company Configuration",
+                              category: "masters",
+                            },
+                            {
+                              key: "currency",
+                              label: "Currency Master",
+                              category: "masters",
+                            },
+                            {
+                              key: "currency-conversion",
+                              label: "Currency Conversion Master",
+                              category: "masters",
+                            },
+                            {
+                              key: "ports",
+                              label: "Ports",
+                              category: "masters",
+                            },
+                            {
+                              key: "uom",
+                              label: "UOM",
+                              category: "masters",
+                            },
+                            {
+                              key: "inspection-template",
+                              label: "Inspection Templates",
+                              category: "masters",
+                            },
+                          ],
                           quality: [
                             {
                               key: "incomingquality",
@@ -1114,7 +1295,7 @@ export default function App() {
 
         {/* User Card */}
         <div className="relative px-4 py-3 border-t border-slate-200 bg-white">
-          <div 
+          <div
             className="flex items-center gap-3 cursor-pointer hover:bg-slate-50 p-1 -mx-1 rounded transition-colors"
             onClick={() => setUserMenuOpen(!userMenuOpen)}
           >
@@ -1140,9 +1321,7 @@ export default function App() {
                 <p className="text-xs font-semibold text-slate-700">Account</p>
               </div>
               <div className="p-1">
-                <button
-                  className="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded transition-colors text-left"
-                >
+                <button className="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-100 hover:text-slate-900 rounded transition-colors text-left">
                   <Icon name="settings" size={14} />
                   Settings
                 </button>
@@ -1346,7 +1525,6 @@ export default function App() {
                       Upload Document
                     </Button>
                   </>
-
                 ) : activeEntityKey === "supplier" ? (
                   <>
                     <Button
@@ -1572,7 +1750,33 @@ export default function App() {
                   data={activeEntityData}
                   onRowClick={(row) => setViewingEntity(row)}
                   onCreateClick={() => {
-                    setEditingEntity(null)
+                    const prefix = activeEntityKey.substring(0, 3).toUpperCase()
+                    const initialData: Record<string, any> = {}
+
+                    activeEntityFields.forEach((f) => {
+                      const lowerKey = f.key.toLowerCase()
+                      if (
+                        lowerKey === "refno" ||
+                        lowerKey.endsWith("no") ||
+                        lowerKey.endsWith("code")
+                      ) {
+                        if (
+                          lowerKey !== "zipcode" &&
+                          lowerKey !== "postcode" &&
+                          lowerKey !== "companycode"
+                        ) {
+                          initialData[f.key] =
+                            `HOM-${prefix}-${Math.floor(10000 + Math.random() * 90000)}`
+                        }
+                      }
+                      if (f.type === "date" || lowerKey.includes("date")) {
+                        initialData[f.key] = new Date()
+                          .toISOString()
+                          .split("T")[0]
+                      }
+                    })
+
+                    setEditingEntity({ details: initialData })
                     setFormMode("create")
                     setIsFormOpen(true)
                   }}
